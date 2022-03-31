@@ -113,24 +113,79 @@ i {
       margin-right: 10px;
       display: inline-block; }
       #main_container .tableback td.actions .tablebtn a {
-        color: #FFF;
-        text-transform: uppercase;
         text-decoration: none;
-        padding: 5px 10px;
-        font-size: 0.7rem;
         display: flex;
         flex-direction: row;
-        flex-wrap: nowrap; }
+        flex-wrap: nowrap;
+        justify-content: center;
+        align-items: center; }
         #main_container .tableback td.actions .tablebtn a i {
-          font-size: 1rem; }
-      #main_container .tableback td.actions .tablebtn.edit {
-        background-color: #FFC107; }
-        #main_container .tableback td.actions .tablebtn.edit:hover {
-          background-color: #31363b; }
-      #main_container .tableback td.actions .tablebtn.del {
-        background-color: #DC3545; }
-        #main_container .tableback td.actions .tablebtn.del:hover {
-          background-color: #31363b; }
+          font-size: 1.5rem;
+          margin-right: 0; }
+          #main_container .tableback td.actions .tablebtn a i.btn-edit {
+            color: #FFC107; }
+            #main_container .tableback td.actions .tablebtn a i.btn-edit:hover {
+              color: #31363b; }
+          #main_container .tableback td.actions .tablebtn a i.btn-del {
+            color: #DC3545; }
+            #main_container .tableback td.actions .tablebtn a i.btn-del:hover {
+              color: #31363b; }
+          #main_container .tableback td.actions .tablebtn a i.btn-add {
+            color: #28A745; }
+            #main_container .tableback td.actions .tablebtn a i.btn-add:hover {
+              color: #31363b; }
+  #main_container .form {
+    width: 100%;
+    max-width: 800px; }
+    #main_container .form .row-1, #main_container .form .row-2, #main_container .form .row-4 {
+      gap: 20px;
+      width: 100%;
+      margin-bottom: 10px;
+      display: grid; }
+    #main_container .form .row-1 {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "."; }
+      @media only screen and (min-width: 768px) {
+        #main_container .form .row-1 {
+          grid-template-columns: 1fr;
+          grid-template-rows: 1fr;
+          grid-template-areas: "."; } }
+    #main_container .form .row-2 {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "."; }
+      @media only screen and (min-width: 768px) {
+        #main_container .form .row-2 {
+          grid-template-columns: 1fr 1fr;
+          grid-template-rows: 1fr;
+          grid-template-areas: ". ."; } }
+    #main_container .form .row-4 {
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+      grid-template-areas: "."; }
+      @media only screen and (min-width: 768px) {
+        #main_container .form .row-4 {
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+          grid-template-rows: 1fr;
+          grid-template-areas: ". . . ."; } }
+    #main_container .form .btn {
+      padding: 10px 13px;
+      background-color: #28A745;
+      color: #FFF;
+      text-decoration: none;
+      text-transform: uppercase;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      margin: 10px 0px; }
+      #main_container .form .btn:hover {
+        background-color: #31363b; }
+    #main_container .form .form-item {
+      width: 100%; }
+      #main_container .form .form-item input, #main_container .form .form-item select {
+        width: 100%;
+        padding: 5px 10px; }
 
 #menu {
   display: none;
