@@ -1,0 +1,65 @@
+#logo_box {
+  padding: 20px 0;
+  padding-right: 20px;
+  width: 150px;
+}
+
+@include mix_mobile {
+  #logo_box {
+    width: 200px;
+  }
+}
+
+h2 {
+  padding-top: 40px;
+  text-align: center;
+}
+
+section {
+  &#slider_services {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+  &#info {
+    padding: 40px 0px;
+    background-color: $gris_fondo;
+  }
+}
+
+// SECTION MARCAS
+#marcas_box {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+
+  .marca_item {
+    flex: 0 0 auto;
+    margin: 10px;
+    width: 120px;
+    
+    a {
+      filter: grayscale(100%); 
+      transition: filter .3s linear;
+    }
+
+    a:hover {
+      filter: none;
+    }
+  }
+}
+
+@include mix_tablet {
+
+  #marcas_box {
+   
+    .marca_item {
+      flex: 0 0 auto;
+      margin: 10px;
+      width: 200px;
+    }
+  }
+
+}

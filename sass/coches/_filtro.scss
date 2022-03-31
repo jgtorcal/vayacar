@@ -1,0 +1,92 @@
+#filtrobtn {
+
+    //@include btn;
+
+    //display: block;
+    font-size: 1rem;
+
+    @include mix_tablet {
+        //display: none;
+    }
+}
+
+
+.titulobox {
+    background-color: $green;
+    color: #FFFFFF;
+    padding: 10px 0px;
+    cursor: pointer;
+    user-select: none;
+    
+    @include mix_tablet {
+        cursor:unset;
+    }
+
+    h3 {
+        font-size: 1rem;
+        text-align: center;
+        text-transform: uppercase;
+        font-weight: 500;
+
+        @include mix_tablet {
+            font-size: 1.5rem;
+        }
+    }
+     
+}
+
+#filtro {
+    background-color: $gris_fondo;
+    padding: 0px 0px 40px 0px;
+
+    display: none;
+
+    @include mix_tablet {
+        display: block!important;
+    }
+
+    
+
+    
+
+    #filtroform {
+
+        display: flex;
+        flex-direction: column;
+
+        @include mix_tablet {
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 40px;
+            align-items: end;
+        }
+
+        .form_item {
+
+            width: 100%;
+            padding: 20px 0px 5px;
+
+            select, button {
+                width: 100%;
+                padding: 7px;
+                height: 45px;
+            }
+
+            button {
+                cursor: pointer;
+                background-color: $green;
+                color: #FFFFFF;
+                border: none;
+                border-radius: 10px;
+            }
+
+            @include mix_tablet {
+            }
+
+            .title {
+                padding: 5px 0px;
+            }
+
+        }
+    }
+}

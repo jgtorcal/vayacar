@@ -1,0 +1,66 @@
+section#carlist {
+
+    padding: 60px 0px;
+
+    #carlistbox {
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        grid-template-rows: 1fr;
+        gap: 40px 20px; 
+        grid-template-areas: 
+            ". .";
+
+        .carlist_item {
+
+            a {
+                text-decoration: none;
+                color: $color_text;
+
+                img {
+                    object-fit: cover;
+                    max-height: 300px;
+                    width: 100%;
+                }
+                .carlist_item_box {
+                    padding: 15px 0;
+                    text-align: center;
+                    background: $green;
+                    transition: background .3s linear;
+                    color: #FFFFFF;
+                
+                    .carlist_item_box_title {
+                        font-weight: 500;
+                    }
+                }
+
+                &:hover {
+                    .carlist_item_box {
+                        background: $color_text;
+                        transition: background .3s linear;
+                    }
+                }
+            }
+    
+        }
+
+
+    }
+
+    @include mix_tablet {
+        #carlistbox {
+            grid-template-columns: 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas:
+            ". . .";
+        }
+    }
+
+    @include mix_tablet_md {
+        #carlistbox {
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr;
+            grid-template-areas:
+            ". . . .";
+        }
+    }
+}

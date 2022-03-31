@@ -1,0 +1,31 @@
+@import "mixins/media";
+
+@mixin btn {
+    background-color: $green;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    text-align: center;
+    padding: 15px 25px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 60px auto;
+    font-size: 1rem;
+    transition: background-color 0.5s linear;
+    cursor: pointer;
+
+    @include mix_tablet {
+        font-size: 1.5rem;
+    }
+
+    &:hover {
+        background-color: $color_text;
+        color: #FFFFFF;
+        //transition: all 0.5s 0s ease;
+        transition: background-color 0.5s linear;
+    }
+
+    i {
+        margin-right: 10px;
+    }
+}

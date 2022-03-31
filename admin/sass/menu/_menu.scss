@@ -1,0 +1,104 @@
+#menu {
+  display: none;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #FFFFFF;
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  z-index: 10;
+
+  li {
+
+    list-style: none;
+
+    i {
+      color: $color_text;
+      width: 20px;
+    }
+
+    a {
+      text-decoration: none;
+      color: #31363b;
+      text-transform: uppercase;
+      font-weight: 400;
+
+      &.active {
+        color: $green;
+      }
+
+      &:hover {
+        color: $green;
+      }
+    }
+    
+  }
+
+  &.on_menu {
+    display: flex;
+    animation: muestraMenu 0.3s ease-in-out forwards;
+  }
+}
+
+@keyframes muestraMenu {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes ocultaMenu {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@include mix_tablet {
+
+  #nav_container {
+    width: 100%;
+  }
+  #menu {
+
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    background: transparent;
+    padding: 0px;
+    margin: 0px;
+    align-items: baseline;
+
+      li {
+        margin: 0px 0px 0px 0px;
+        padding: 20px;
+
+        i {
+          color: #FFF;
+          width: 20px;
+        }
+
+        a {
+          color: #FFF;
+
+          &:hover {
+            color: $green;
+          }
+        }
+  
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+  }
+
+  #menu_btn {
+    display: none;
+  }
+}

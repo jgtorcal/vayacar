@@ -1,0 +1,69 @@
+#contacto_box {
+
+    #contacto_header {
+        background-image: url('../img/slide05.png');
+        background-size: cover;
+        height: 300px;
+        background-position: center;
+    }
+
+    #contacto_content {
+
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+        }
+
+        #contacto_triobox {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            gap: 20px;
+            margin-top: 40px;
+
+            @include mix_tablet {
+                flex-direction: row;
+            }
+
+            .contacto_trio {
+                flex: 1;
+                background-color: $gris-fondo;
+                padding: 40px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+
+                i {
+                    font-size: 2rem;
+                    margin-right: 0;
+                }
+
+                h4 {
+                    font-size: 1.5rem;
+                    text-align: center;
+                }
+
+                p {
+                    padding: 20px 0px;
+                    margin-bottom: 0;
+                    text-align: center;
+
+                    &.red {
+                       font-size: 1.2rem;
+                       color: $green;
+                       font-weight: 400;
+                    }
+                }
+            }
+        }
+    }
+
+    #contacto_map {
+        height: 450px;
+    }
+
+}
+

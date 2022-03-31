@@ -1,0 +1,128 @@
+footer#footer_container {
+    #footerbox {
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        color: #FFFFFF;
+
+        a {
+            text-decoration: none;
+            color: #FFFFFF;
+        }
+
+        .footer_right,
+        .footer_center,
+        .footer_left {
+            flex: 1;
+        }
+
+        .footer_left {
+            display: flex;
+            justify-content: center;
+        }
+
+        @include mix_tablet {
+            .footer_left {
+                justify-content: end;
+            }
+        }
+
+        .footer_center {
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+            padding: 0px 20px 0px 20px;
+        }
+
+        @include mix_tablet {
+            .footer_center {
+                text-align: left;
+                padding: 0px 20px 0px 0px;
+            }
+            
+        }
+
+        #logo_footer_box {
+
+            display: flex;
+            justify-content: center;
+            flex-direction: column;
+            text-align: center;
+
+            img {
+                max-width: 250px;
+                margin: 20px auto;
+            }
+
+            @include mix_tablet {
+                img {
+                    max-width: 250px;
+                    margin-bottom: 20px;
+                    margin: 20px 0px;
+                }
+
+                text-align: left;
+                justify-content: start;
+            }
+            
+        }
+
+        .footer_right {
+            border-top: 1px solid #FFF;
+            padding-top: 20px;
+        }
+
+        @include mix_tablet {
+            .footer_right {
+                border-left: 1px solid #FFF;
+                padding-left: 20px;
+                border-top:none;
+                padding-top: 0;
+            }
+        }
+
+        #menufooter {
+            list-style: none;
+            padding-left: 0px;
+
+            display: flex;
+            flex-direction: column;
+            flex-wrap: nowrap;
+            justify-content: center;
+
+            @include mix_tablet {
+                justify-content: start;
+            }
+
+            li {
+                text-align: center;
+                margin-bottom: 10px;
+                a {
+                    text-decoration: none;
+                    color: #FFFFFF;
+
+                    &:hover {
+                        color: $color_text;
+                    }
+                }
+            }
+
+            @include mix_tablet {
+                li {
+                    text-align: left;
+                }
+            }
+
+            
+        }
+    }
+
+    @include mix_tablet {
+       #footerbox {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        } 
+    }
+}

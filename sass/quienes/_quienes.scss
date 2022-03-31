@@ -1,0 +1,29 @@
+#quienes_box {
+
+    #quienes_header {
+        background-image: url('../img/slide04.png');
+        background-size: cover;
+        height: 300px;
+        background-position: center;
+    }
+
+    #quienes_content {
+        padding: 60px 0px;
+        max-width: 800px;
+        text-align: center;
+        margin: 0 auto;
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            padding-top: 0px;
+        }
+
+        .quienes_text {
+            padding-top: 60px;
+        }
+    }
+}

@@ -1,0 +1,42 @@
+/* BURGER */
+#menu_btn {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  z-index: 999;
+}
+#burger,
+#burger::before,
+#burger::after {
+  width: 30px;
+  height: 3px;
+  background: black;
+  transition: all 0.2s ease-in-out;
+}
+#burger::before,
+#burger::after {
+  content: "";
+  position: absolute;
+}
+#burger::before {
+  transform: translateY(-8px);
+}
+#burger::after {
+  transform: translateY(8px);
+}
+/* ANIMATION BURGER */
+#menu_btn.open #burger {
+  transform: rotatex(180deg);
+  background: transparent;
+}
+#menu_btn.open #burger::before {
+  transform: rotate(45deg) translate(0px, 0px);
+}
+#menu_btn.open #burger::after {
+  transform: rotate(-45deg) translate(0px, 0px);
+}
