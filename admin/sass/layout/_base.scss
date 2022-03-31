@@ -1,0 +1,72 @@
+#main_container {
+
+    /* TABLAS */
+
+    .restable {
+        overflow-x:auto;
+        width: 100%;
+    }
+
+    .tableback {
+		border:1px solid $color_border_tabla;
+		border-collapse:collapse;
+        margin: 20px 0px;
+        width: 100%;
+	}
+	.tableback th {
+		border:1px solid $color_border_tabla;
+		padding:10px;
+		background: $gris_fondo;
+        text-align: left;
+        font-weight: 400;
+        text-transform: uppercase;
+	}
+	.tableback td {
+		border:1px solid $color_border_tabla;
+		padding:10px;
+
+        &.actions {
+
+            .tablebtn {
+                
+                margin-right: 10px;
+                display: inline-block;
+
+                a {
+                    color: #FFF;
+                    text-transform: uppercase;
+                    text-decoration: none;
+                    padding: 5px 10px;
+                    font-size: 0.7rem;
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+
+                    i {
+                        font-size: 1rem;
+                    }
+                }
+
+                
+                
+
+                &.edit{
+                    background-color: $color_edit;
+
+                    &:hover {
+                        background-color: $color_text;
+                    }
+                }
+
+                &.del {
+                    background-color: $color_del;
+
+                    &:hover {
+                        background-color: $color_text;
+                    }
+                }
+            }
+        }
+	}
+    
+}

@@ -62,10 +62,11 @@ p {
   #grid_container #main_container {
     grid-area: main;
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: start;
     align-items: flex-start;
-    padding: 20px; }
+    padding: 20px;
+    background-color: #FFF; }
     @media only screen and (min-width: 768px) {
       #grid_container #main_container {
         padding: 40px; } }
@@ -87,6 +88,49 @@ p {
     overflow: auto; } }
 i {
   margin-right: 10px; }
+
+#main_container {
+  /* TABLAS */ }
+  #main_container .restable {
+    overflow-x: auto;
+    width: 100%; }
+  #main_container .tableback {
+    border: 1px solid #C0C0C0;
+    border-collapse: collapse;
+    margin: 20px 0px;
+    width: 100%; }
+  #main_container .tableback th {
+    border: 1px solid #C0C0C0;
+    padding: 10px;
+    background: #F3F3F3;
+    text-align: left;
+    font-weight: 400;
+    text-transform: uppercase; }
+  #main_container .tableback td {
+    border: 1px solid #C0C0C0;
+    padding: 10px; }
+    #main_container .tableback td.actions .tablebtn {
+      margin-right: 10px;
+      display: inline-block; }
+      #main_container .tableback td.actions .tablebtn a {
+        color: #FFF;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 5px 10px;
+        font-size: 0.7rem;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap; }
+        #main_container .tableback td.actions .tablebtn a i {
+          font-size: 1rem; }
+      #main_container .tableback td.actions .tablebtn.edit {
+        background-color: #FFC107; }
+        #main_container .tableback td.actions .tablebtn.edit:hover {
+          background-color: #31363b; }
+      #main_container .tableback td.actions .tablebtn.del {
+        background-color: #DC3545; }
+        #main_container .tableback td.actions .tablebtn.del:hover {
+          background-color: #31363b; }
 
 #menu {
   display: none;

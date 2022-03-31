@@ -87,10 +87,11 @@ p {
 	#main_container {
 		grid-area: main;
 		display: flex;
-		flex-direction: row;
+		flex-direction: column;
 		justify-content: start;
 		align-items: flex-start;
 		padding: 20px;
+		background-color: #FFF;
 		@include mix_tablet {
 			padding: 40px;
 		}
@@ -124,3 +125,6 @@ p {
 i {
 	margin-right: 10px;
 }
+
+
+
