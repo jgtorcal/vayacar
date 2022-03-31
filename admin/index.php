@@ -58,7 +58,7 @@
 
 
     <main id="main_container">
-        MAIN LAP
+        MAIN LAP DESK
     </main>
 
 </div>
