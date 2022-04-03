@@ -261,6 +261,95 @@ section#carlist {
       grid-template-rows: 1fr;
       grid-template-areas: ". . . ."; } }
 
+section#car {
+  padding: 20px 0px;
+  border-top: 1px solid #F3F3F3; }
+  @media only screen and (min-width: 768px) {
+    section#car {
+      padding: 40px 0px; } }
+  section#car #carbox {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 20px; }
+    @media only screen and (min-width: 768px) {
+      section#car #carbox {
+        flex-direction: row; } }
+    section#car #carbox #carimg {
+      flex: 2; }
+      section#car #carbox #carimg #cardetails {
+        padding-top: 20px; }
+        section#car #carbox #carimg #cardetails #cartitle h1 {
+          font-weight: 500;
+          font-size: 2rem; }
+        section#car #carbox #carimg #cardetails #cardestacado {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          gap: 10px; }
+          section#car #carbox #carimg #cardetails #cardestacado .cardesitem {
+            padding: 10px 15px;
+            background-color: #F3F3F3;
+            border-radius: 10px;
+            font-weight: 500;
+            display: inline-block; }
+            section#car #carbox #carimg #cardetails #cardestacado .cardesitem.precio {
+              color: #219ebc;
+              font-weight: 500; }
+        section#car #carbox #carimg #cardetails #cardesc {
+          padding: 20px 0px; }
+        section#car #carbox #carimg #cardetails #cardetailsbox {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 10px; }
+          section#car #carbox #carimg #cardetails #cardetailsbox .detail {
+            padding: 10px 15px;
+            background-color: #F3F3F3;
+            border-radius: 10px; }
+            section#car #carbox #carimg #cardetails #cardetailsbox .detail b {
+              font-weight: 500; }
+    section#car #carbox #cartext {
+      flex: 1;
+      display: flex;
+      flex-direction: column; }
+      section#car #carbox #cartext #carformbox #carformcta {
+        background-color: #219ebc;
+        font-weight: 500;
+        color: #FFF;
+        padding: 10px 15px;
+        text-align: center; }
+      section#car #carbox #cartext #carformbox #carform {
+        padding: 20px 0px;
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap; }
+        section#car #carbox #cartext #carformbox #carform .row-2 {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+          gap: 20px; }
+          section#car #carbox #cartext #carformbox #carform .row-2 .form-item {
+            flex: 1; }
+        section#car #carbox #cartext #carformbox #carform .form-item {
+          margin-bottom: 10px;
+          width: 100%; }
+          section#car #carbox #cartext #carformbox #carform .form-item input, section#car #carbox #cartext #carformbox #carform .form-item select, section#car #carbox #cartext #carformbox #carform .form-item textarea {
+            width: 100%;
+            padding: 5px 10px; }
+        section#car #carbox #cartext #carformbox #carform .btn {
+          padding: 10px 13px;
+          background-color: #219ebc;
+          color: #FFF;
+          text-decoration: none;
+          text-transform: uppercase;
+          font-size: 1rem;
+          border: none;
+          cursor: pointer;
+          margin: 10px 0px; }
+          section#car #carbox #cartext #carformbox #carform .btn:hover {
+            background-color: #31363b; }
+
 #filtrobtn {
   font-size: 1rem; }
 

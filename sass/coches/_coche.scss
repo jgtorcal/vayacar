@@ -1,0 +1,149 @@
+section#car {
+
+    padding: 20px 0px;
+    border-top: 1px solid $gris_fondo;
+
+    @include mix_tablet {
+        padding: 40px 0px;
+    }
+
+    #carbox {
+
+        display: flex;
+        flex-direction: column;
+        flex-wrap: nowrap;
+        gap: 20px;
+
+        @include mix_tablet {
+            flex-direction: row;
+        }
+
+        #carimg {
+            flex: 2;
+
+            #cardetails {
+                
+                padding-top: 20px;
+
+                #cartitle {
+                    h1 {
+                        font-weight: 500;
+                        font-size: 2rem;
+                    }
+                }
+    
+                #cardestacado {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    gap: 10px;
+    
+                    .cardesitem {
+                        padding: 10px 15px;
+                        background-color: $gris_fondo;
+                        border-radius: 10px;
+                        font-weight: 500;
+                        display: inline-block;
+    
+                        &.precio {
+                            color: $green;
+                            font-weight: 500;
+                        }
+                    }
+                }
+    
+                #cardesc {
+                    padding: 20px 0px;
+                }
+
+                #cardetailsbox {
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    gap: 10px;
+
+                    .detail {
+                        padding: 10px 15px;
+                        background-color: $gris_fondo;
+                        border-radius: 10px;
+    
+                        b {
+                            font-weight: 500;
+                        }
+                    }
+                }
+
+                
+            }
+
+        }
+
+        #cartext {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            
+
+            
+
+            #carformbox {
+
+                #carformcta {
+                    background-color: $green;
+                    font-weight: 500;
+                    color: #FFF;
+                    padding: 10px 15px;
+                    text-align: center;
+                }
+
+                #carform {
+                    padding: 20px 0px;
+                    display: flex;
+                    flex-direction: column;
+                    flex-wrap: nowrap;
+
+                    .row-2 {
+                        display: flex;
+                        flex-direction: row;
+                        flex-wrap: wrap;
+                        gap: 20px;
+
+                        .form-item {
+                            flex:1;
+                        }
+                    }
+
+                    .form-item {
+                        margin-bottom: 10px;
+                        width: 100%;
+
+                        input, select, textarea {
+                            width: 100%;
+                            padding: 5px 10px;
+                        }
+                    }
+
+                    .btn {
+                        padding: 10px 13px;
+                        background-color: $green;
+                        color: #FFF;
+                        text-decoration: none;
+                        text-transform: uppercase;
+                        font-size: 1rem;
+                        border: none;
+                        cursor: pointer;
+                        margin: 10px 0px;
+            
+                        &:hover {
+                            background-color: $color_text;
+                        }
+                    }
+                }
+
+            }
+
+        }
+        
+
+    }
+}
