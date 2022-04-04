@@ -42,6 +42,7 @@ class App {
                 break;
             case 'usuarios':
                 $controller_name = 'usuario';
+                
                 break;
             case 'coches':
                 $controller_name = 'coche';
@@ -79,9 +80,33 @@ class App {
             $clase = ucfirst($controller_name).'Controller';
             $controller = new $clase;
 
+            // Si hay método
             if (isset($url[1])){
-                $controller->{$url[1]}();
+
+                $method_name = $url[1];
+
+                if (method_exists($clase, $method_name)) {
+
+                    //$controller->{$method_name}();
+
+                    if (isset($url[2])){
+                        $controller->{$method_name}($url[2]);
+                    } else {
+                        $controller->{$method_name}();
+                    }
+
+                } else {
+
+                    $controller = new ErrorController();
+                    $controller->MuestraError('No existe el método');
+
+                }
+
             }
+
+            // if (isset($url[1])){
+            //     $controller->{$url[1]}();
+            // }
 
         } else {
 
