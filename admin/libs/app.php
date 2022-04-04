@@ -1,6 +1,6 @@
 <?php
 
-require_once 'controllers/errores.php';
+require_once 'controllers/errorController.php';
 
 class App {
 
@@ -14,21 +14,70 @@ class App {
         // Llamamos al controlador (PRIMERA POSICION DE lA URL)
         if(empty($url[0])) {
 
-            $archivoController = 'controllers/main.php';
-            require_once $archivoController;
-            $controller = new Main();
+            // $archivoController = 'controllers/mainController.php';
+            // require_once $archivoController;
+            // $controller = new MainController();
+            $controller_name = 'main';
             return false;
 
         }
 
-        $archivoController = 'controllers/' . $url[0] . '.php';
+        /*
+            /usuarios
+            /usuarios/new
+            /usuarios/edit/1
+            /usuarios/update/1
+            /usuarios/del/1
+
+            /coches
+            /coches/new
+            /coches/edit/1
+            /coches/update/1
+            /coches/del/1
+        */
+
+        switch ($url[0]) {
+            case 'main':
+                $controller_name = 'main';
+                break;
+            case 'usuarios':
+                $controller_name = 'usuario';
+                break;
+            case 'coches':
+                $controller_name = 'coche';
+                break;
+            case 'marcas':
+                $controller_name = 'marca';
+                break;
+            case 'colores':
+                $controller_name = 'color';
+                break;
+            case 'contenidos':
+                $controller_name = 'contenido';
+                break;
+            case 'contactos':
+                $controller_name = 'contacto';
+                break;
+        }
+
+        if (isset($controller_name)){
+            $archivoController = 'controllers/' . $controller_name . 'Controller.php';
+        } else {
+            $controller = new ErrorController();
+            $controller->MuestraError('No existe la ruta especificada');
+        }
+
+
+        
 
         // Si existe el controlador, lo llamamos y utilizamos el método que corresponda
         // Si no existe llamamos al controlador de errores
         if (file_exists($archivoController)) {
 
             require_once $archivoController;
-            $controller = new $url[0];
+
+            $clase = ucfirst($controller_name).'Controller';
+            $controller = new $clase;
 
             if (isset($url[1])){
                 $controller->{$url[1]}();
@@ -36,11 +85,10 @@ class App {
 
         } else {
 
-            $controller = new Errores();
+            $controller = new ErrorController();
+            $controller->MuestraError('No existe el controlador');
 
         }
-
-
         
     }
 
