@@ -1,12 +1,12 @@
 <?php
-include 'header.php';
+require 'views/header.php';
 ?>
 
 <!-- GRID CONTAINER -->
 <div id="grid_container">
     
     <?php
-    include 'sidebar.php';
+    require 'views/sidebar.php';
     ?>
 
     <!-- TOP CONTAINER -->
@@ -176,5 +176,5 @@ include 'header.php';
 </div>
 
 <?php
-include 'footer.php';
+require 'views/footer.php';
 ?>

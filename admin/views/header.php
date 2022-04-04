@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- RESET -->
-	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="<?php echo PUBLICURL; ?>css/reset.css">
 	<!-- BURGER -->
-	<link rel="stylesheet" href="css/burger.css">	
+	<link rel="stylesheet" href="<?php echo PUBLICURL; ?>css/burger.css">	
 	<!-- CUSTOM -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="<?php echo PUBLICURL; ?>css/style.css">
     <!-- FONT AWESOME -->
 	<script src="https://kit.fontawesome.com/1518e5c220.js" crossorigin="anonymous"></script>
 

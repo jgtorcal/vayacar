@@ -1,11 +1,11 @@
 <?php
 
-class Main extends Controller {
+class UsuarioController extends Controller {
 
     function __construct() {
 
         parent::__construct();
-        $this->view->render('main/index');
+        $this->view->render('usuario/index');
         
     }
 
