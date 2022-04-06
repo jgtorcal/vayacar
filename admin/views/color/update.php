@@ -21,7 +21,7 @@ require 'views/header.php';
 
         <?php echo $this->mensaje; ?>
 
-        <a href="<?php echo APPURL; ?>colores">Volver</a>
+        <?php echo $this->renderboton; ?>
 
         
 
