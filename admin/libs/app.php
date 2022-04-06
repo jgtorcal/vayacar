@@ -22,19 +22,6 @@ class App {
 
         }
 
-        /*
-            /usuarios
-            /usuarios/new
-            /usuarios/edit/1
-            /usuarios/update/1
-            /usuarios/del/1
-
-            /coches
-            /coches/new
-            /coches/edit/1
-            /coches/update/1
-            /coches/del/1
-        */
 
         switch ($url[0]) {
             case 'main':
@@ -79,28 +66,31 @@ class App {
 
             $clase = ucfirst($controller_name).'Controller';
             $controller = new $clase;
+            $controller->loadModel($controller_name);
 
             // Si hay método
             if (isset($url[1])){
 
                 $method_name = $url[1];
 
-                if (method_exists($clase, $method_name)) {
+            } else {
 
-                    //$controller->{$method_name}();
+                $method_name = 'index';
+            }
 
-                    if (isset($url[2])){
-                        $controller->{$method_name}($url[2]);
-                    } else {
-                        $controller->{$method_name}();
-                    }
+            if (method_exists($clase, $method_name)) {
 
+
+                if (isset($url[2])){
+                    $controller->{$method_name}($url[2]);
                 } else {
-
-                    $controller = new ErrorController();
-                    $controller->MuestraError('No existe el método');
-
+                    $controller->{$method_name}();
                 }
+
+            } else {
+
+                $controller = new ErrorController();
+                $controller->MuestraError('No existe el método');
 
             }
 
