@@ -5,6 +5,8 @@ class UsuarioController extends Controller {
     function __construct() {
 
         parent::__construct();
+        $this->view->titulo_seccion = 'Gestión de usuarios';
+        $this->view->controller_name = 'usuario';
         // $this->view->mensaje = "Lista de usuarios";
         // $this->view->render('usuario/index');
         

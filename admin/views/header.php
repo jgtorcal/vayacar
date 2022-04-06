@@ -17,3 +17,17 @@
     <title>VayaCar Admin</title>
 </head>
 <body>
+<!-- GRID CONTAINER -->
+<div id="grid_container">
+    
+    <?php
+    require 'views/sidebar.php';
+    ?>
+    
+    <!-- TOP CONTAINER -->
+    <header id="top_container">
+        <?php echo $this->titulo_seccion; ?>
+    </header>
+
+
+    <main id="main_container">

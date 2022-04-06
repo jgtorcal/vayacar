@@ -5,6 +5,8 @@ class ErrorController extends Controller {
     function __construct() {
 
         parent::__construct();
+        $this->view->titulo_seccion = 'Gestión de errores';
+        $this->view->controller_name = 'error';
         // $this->view->mensaje = "Error genérico";
         // $this->view->render('error/index');
 

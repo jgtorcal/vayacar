@@ -2,16 +2,15 @@
 
 class Controller {
 
-    function __construct() {
-
-        //echo "Controlador base <br>";
+    // Generamos el objeto vista
+    public function __construct() {
 
         $this->view = new View();
         
-
     }
 
-    function loadModel($model){
+    public function loadModel($model){
+
         $url = 'models/'.$model.'model.php';
 
         if (file_exists($url)){
@@ -21,7 +20,9 @@ class Controller {
             $this->model = new $modelName();
             
         }
+
     }
+
 
 }
 

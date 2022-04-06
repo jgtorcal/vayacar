@@ -5,6 +5,8 @@ class ColorController extends Controller{
     function __construct(){
 
         parent::__construct();
+        $this->view->titulo_seccion = 'Gestión de colores';
+        $this->view->controller_name = 'color';
         $this->view->mensaje = "";
         $this->view->renderboton = '<a href="' . APPURL . 'colores" class="btn btn-blue">Volver</a>';
         

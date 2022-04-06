@@ -29,7 +29,6 @@ class App {
                 break;
             case 'usuarios':
                 $controller_name = 'usuario';
-                
                 break;
             case 'coches':
                 $controller_name = 'coche';
@@ -93,10 +92,7 @@ class App {
                 $controller->MuestraError('No existe el método');
 
             }
-
-            // if (isset($url[1])){
-            //     $controller->{$url[1]}();
-            // }
+            
 
         } else {
 
