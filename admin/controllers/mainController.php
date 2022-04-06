@@ -7,12 +7,14 @@ class MainController extends Controller {
         parent::__construct();
         $this->view->titulo_seccion = 'Panel de administración';
         $this->view->controller_name = 'main';
-        $this->view->render('main/index');
+        $this->view->mensaje = "Main";
         
     }
 
-    function saludo() {
-        echo "Metodo saludo de Main<br>";
+    public function index(){
+
+        $this->view->render('main/index');
+
     }
 
 

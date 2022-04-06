@@ -14,38 +14,41 @@ class App {
         // Llamamos al controlador (PRIMERA POSICION DE lA URL)
         if(empty($url[0])) {
 
-            // $archivoController = 'controllers/mainController.php';
-            // require_once $archivoController;
-            // $controller = new MainController();
             $controller_name = 'main';
-            return false;
 
+        } else {
+
+            switch ($url[0]) {
+                case 'main':
+                    $controller_name = 'main';
+                    break;
+                case 'usuarios':
+                    $controller_name = 'usuario';
+                    break;
+                case 'coches':
+                    $controller_name = 'coche';
+                    break;
+                case 'marcas':
+                    $controller_name = 'marca';
+                    break;
+                case 'colores':
+                    $controller_name = 'color';
+                    break;
+                case 'contenidos':
+                    $controller_name = 'contenido';
+                    break;
+                case 'contactos':
+                    $controller_name = 'contacto';
+                    break;
+                case 'login':
+                    $controller_name = 'login';
+                    break;
+            }
+            
         }
 
 
-        switch ($url[0]) {
-            case 'main':
-                $controller_name = 'main';
-                break;
-            case 'usuarios':
-                $controller_name = 'usuario';
-                break;
-            case 'coches':
-                $controller_name = 'coche';
-                break;
-            case 'marcas':
-                $controller_name = 'marca';
-                break;
-            case 'colores':
-                $controller_name = 'color';
-                break;
-            case 'contenidos':
-                $controller_name = 'contenido';
-                break;
-            case 'contactos':
-                $controller_name = 'contacto';
-                break;
-        }
+        
 
         if (isset($controller_name)){
             $archivoController = 'controllers/' . $controller_name . 'Controller.php';

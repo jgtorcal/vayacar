@@ -16,12 +16,32 @@ class Controller {
         if (file_exists($url)){
 
             require $url;
+
             $modelName = $model.'Model';
             $this->model = new $modelName();
             
         }
 
     }
+
+
+    // function redirect($url, $mensajes = []){
+    //     $data = [];
+    //     $params = '';
+        
+    //     foreach ($mensajes as $key => $value) {
+    //         array_push($data, $key . '=' . $value);
+    //     }
+    //     $params = join('&', $data);
+        
+    //     if($params != ''){
+    //         $params = '?' . $params;
+    //     }
+    //     header('location: ' . constant('URL') . $url . $params);
+    // }
+
+
+
 
 
 }

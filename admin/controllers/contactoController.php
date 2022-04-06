@@ -8,8 +8,13 @@ class ContactoController extends Controller {
         $this->view->titulo_seccion = 'Gestión de contactos';
         $this->view->controller_name = 'contacto';
         $this->view->mensaje = "Lista de contactos";
-        $this->view->render('contacto/index');
         
+    }
+
+    public function index(){
+
+        $this->view->render('contacto/index');
+
     }
 
 

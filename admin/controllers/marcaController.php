@@ -8,8 +8,13 @@ class MarcaController extends Controller {
         $this->view->titulo_seccion = 'Gestión de marcas';
         $this->view->controller_name = 'marca';
         $this->view->mensaje = "Lista de marcas";
-        $this->view->render('marca/index');
         
+    }
+
+    public function index(){
+
+        $this->view->render('marca/index');
+
     }
 
 
