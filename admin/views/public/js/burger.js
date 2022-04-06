@@ -10,6 +10,3 @@ document.addEventListener( 'DOMContentLoaded', function () {
         grid.classList.toggle('on_hidden');
     })
 });
-
-
-

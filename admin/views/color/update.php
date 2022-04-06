@@ -23,9 +23,6 @@ require 'views/header.php';
 
         <?php echo $this->renderboton; ?>
 
-        
-
-
     </main>
 
 </div>

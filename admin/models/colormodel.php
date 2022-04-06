@@ -8,7 +8,7 @@ class ColorModel extends Model {
 
     }
 
-    public function get() {
+    public function getAll() {
 
         // Recuperar lista de colores
         $items = [];
@@ -63,7 +63,7 @@ class ColorModel extends Model {
 
     }
 
-    public function insert($data) {
+    public function insertColor($data) {
 
         // Insertar datos nuevos
         try {
@@ -77,38 +77,52 @@ class ColorModel extends Model {
             return true;
 
         } catch(PDOException $e) {
-            
+
             return false;
+
         }
 
     }
 
 
 
-    public function update($item){
+    public function updateColor($item){
+
         $query = $this->db->connect()->prepare("UPDATE colores SET color = :color WHERE id_color = :id_color");
+
         try{
             $query->execute([
                 'id_color'=> $item['id_color'],
                 'color'=> $item['color']
             ]);
+
             return true;
+
         }catch(PDOException $e){
+
             return false;
+
         }
     }
 
 
 
-    public function delete($id){
+    public function deleteColor($id){
+
         $query = $this->db->connect()->prepare("DELETE FROM colores WHERE id_color = :id");
+        
         try{
+
             $query->execute([
                 'id'=> $id,
             ]);
+
             return true;
+
         }catch(PDOException $e){
+
             return false;
+
         }
     }
     

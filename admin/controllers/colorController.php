@@ -6,14 +6,14 @@ class ColorController extends Controller{
 
         parent::__construct();
         $this->view->mensaje = "";
-        $this->view->renderboton = '<a href="' . APPURL . 'colores">Volver</a>';
+        $this->view->renderboton = '<a href="' . APPURL . 'colores" class="btn btn-blue">Volver</a>';
         
     }
 
     // Listar todos los colores
     public function index($mensaje = null){
 
-        $colores = $this->model->get();
+        $colores = $this->model->getAll();
         $this->view->colores = $colores;
         $this->view->mensaje = $mensaje;
         $this->view->render('color/index');
@@ -33,7 +33,7 @@ class ColorController extends Controller{
         $color = $_POST['color'];
         $mensaje = "";
 
-        if ($this->model->insert(['color' => $color])) {
+        if ($this->model->insertColor(['color' => $color])) {
             $mensaje = "Nuevo color creado";
         } else {
             $mensaje = 'Hahabido un error insertando el nuevo color';
@@ -60,11 +60,10 @@ class ColorController extends Controller{
         $id_color = $_POST['id_color'];
         $color  = $_POST['color'];
 
-        if($this->model->update([ 'id_color' => $id_color, 'color' => $color ])){
+        if($this->model->updateColor([ 'id_color' => $id_color, 'color' => $color ])){
             $mensaje = "Color actualizado correctamente";
-
         }else{
-            $mensaje = "Ha fallado la actualización del color";
+            $mensaje = "No se pudo actualizar el color";
         }
         $this->view->mensaje = $mensaje;
         $this->view->render('color/update');
@@ -75,7 +74,7 @@ class ColorController extends Controller{
 
         $id_color = $param;
 
-        if($this->model->delete($id_color)){
+        if($this->model->deleteColor($id_color)){
             $mensaje = "Color eliminado correctamente";
         }else{
             $mensaje = "No se pudo eliminar el color";
@@ -84,12 +83,6 @@ class ColorController extends Controller{
         $this->view->mensaje = $mensaje;
         $this->view->render('color/delete');
     }
-
-    public function renderBoton(){
-        
-    }
-
-
 
 }
 
