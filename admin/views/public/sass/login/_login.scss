@@ -1,0 +1,42 @@
+#login-main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-color: $gris_fondo;
+
+    form {
+
+        padding: 40px;
+        background-color: #FFFFFF;
+        max-width: 400px;
+
+        h2 {
+            text-align: left;
+            margin-bottom: 40px;
+        }
+
+        .login-item {
+            margin-bottom: 20px;
+
+            &.mensaje {
+                color: $color_del;
+            }
+
+            input, label {
+                width: 100%;
+            }
+
+            label {
+                text-transform: uppercase;
+            }
+
+            input {
+                padding: 5px 10px;
+            }
+        }
+    }
+}

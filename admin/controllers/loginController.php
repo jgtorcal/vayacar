@@ -75,12 +75,17 @@ class LoginController extends Controller {
             } else {
 
                 $login_result = 0;
-                header('location: ' . constant('APPURL') . 'login');
+                header('location: ' . constant('APPURL') . 'login/error');
 
             }
 
         }
 
+    }
+
+    function error(){
+        $this->view->mensaje = "Error de login";
+        $this->view->render('login/index');
     }
 
     function cerrar(){

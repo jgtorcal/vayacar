@@ -20,23 +20,39 @@
 <body>
 
     <div id="login-main">
+
         <form action="<?php echo constant('APPURL'); ?>login/auth" method="POST">
+
+            <a href="index.php"><img src="<?php echo PUBLICURL; ?>img/logo.png"></a>
 
             <h2>Iniciar sesión</h2>
 
-            <p>
+            <?php 
+            if(!empty($this->mensaje)){
+                ?>
+                <div class="login-item mensaje">
+                    <?php echo $this->mensaje; ?>
+                </div>
+                <?php
+            }
+            ?>
+            
+
+            <div class="login-item">
                 <label for="email">email</label>
                 <input type="text" name="email" id="email" autocomplete="off">
-            </p>
-            <p>
+            </div>
+
+            <div class="login-item">
                 <label for="password">password</label>
                 <input type="password" name="password" id="password" autocomplete="off">
-            </p>
-            <p>
-                <input type="submit" value="Iniciar sesión" name="login"/>
-            </p>
+            </div>
 
+            <div class="login-item">
+                <input class="btn btn-green" type="submit" value="Iniciar sesión" name="login"/>
+            </div>
         </form>
+
     </div>
 
 </body>

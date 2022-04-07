@@ -40,19 +40,19 @@ class Controller {
 
     public function checkAuth($login, $su){
 
-        echo 'login: ' . $login;
-        echo 'su: ' . $su;
+        //echo 'login: ' . $login;
+        //echo 'su: ' . $su;
 
         $sesion_activa = $this->getSession();
 
         if ( $login == 1){
             if ($sesion_activa == 1){
-                echo "tiene permisos de visualizacion";
+                //echo "tiene permisos de visualizacion";
             } else {
                 header('location: ' . constant('APPURL') . 'login');
             }
         } else {
-            echo "no hace falta login";
+            //echo "no hace falta login";
         }
         
 

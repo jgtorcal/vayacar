@@ -136,24 +136,27 @@
 
 
 
-    .btn {
-        padding: 10px 13px;
-        background-color: $color_new;
-        color: #FFF;
-        text-decoration: none;
-        text-transform: uppercase;
-        font-size: 1rem;
-        border: none;
-        cursor: pointer;
-        margin: 10px 0px;
-
-        &:hover {
-            background-color: $color_text;
-        }
-
-        &.btn-blue {
-            background-color: $green;
-        }
-    }
     
+    
+}
+
+
+.btn {
+    padding: 10px 13px;
+    background-color: $color_new;
+    color: #FFF;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    margin: 10px 0px;
+
+    &:hover {
+        background-color: $color_text;
+    }
+
+    &.btn-blue {
+        background-color: $green;
+    }
 }
