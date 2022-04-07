@@ -9,6 +9,11 @@ class Controller {
         
     }
 
+    public function __invoke()
+    {
+       
+    }
+
     public function loadModel($model){
 
         $url = 'models/'.$model.'model.php';
@@ -23,6 +28,36 @@ class Controller {
         }
 
     }
+
+    public function getSession(){
+
+        require_once 'controllers/loginController.php';
+        $sesion = new LoginController();
+
+        return $sesion->checkSesion();
+
+    }
+
+    public function checkAuth($login, $su){
+
+        echo 'login: ' . $login;
+        echo 'su: ' . $su;
+
+        $sesion_activa = $this->getSession();
+
+        if ( $login == 1){
+            if ($sesion_activa == 1){
+                echo "tiene permisos de visualizacion";
+            } else {
+                header('location: ' . constant('APPURL') . 'login');
+            }
+        } else {
+            echo "no hace falta login";
+        }
+        
+
+    }
+
 
 
     // function redirect($url, $mensajes = []){

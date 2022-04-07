@@ -2,6 +2,12 @@
 
 class UsuarioController extends Controller {
 
+    public $nombre;
+    public $email;
+    public $password;
+    public $id_usuario;
+    public $id_rol;
+
     function __construct() {
 
         parent::__construct();

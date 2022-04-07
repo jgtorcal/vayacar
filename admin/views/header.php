@@ -27,6 +27,7 @@
     <!-- TOP CONTAINER -->
     <header id="top_container">
         <?php echo $this->titulo_seccion; ?>
+
     </header>
 
 

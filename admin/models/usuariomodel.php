@@ -39,6 +39,42 @@ class UsuarioModel extends Model {
 
     }
 
+
+    public function getByEmail($email) {
+
+        // Recuperar info del usuario por email
+        $items = [];
+
+        try{
+
+            $query = $this->db->connect()->prepare('SELECT * FROM usuarios WHERE email = :email');
+            $query->execute([
+                'email' => $email
+            ]);
+
+            while($row = $query->fetch()){
+
+                require_once 'controllers/usuarioController.php';
+                $item = new UsuarioController();
+
+                $item->id_usuario = $row['id_usuario'];
+                $item->nombre = $row['nombre'];
+                $item->email    = $row['email'];
+                $item->password  = $row['password'];
+                $item->id_rol  = $row['id_rol'];
+
+                array_push($items, $item);
+            }
+
+            return $items;
+
+        } catch(PDOException $e){
+
+            return [];
+        }
+
+    }
+
     public function insert($data) {
 
         // Insertar datos nuevos

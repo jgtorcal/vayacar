@@ -31,6 +31,7 @@
                 <li><a href="<?php echo APPURL; ?>colores"<?php isActive($contr, 'color'); ?>><i class="fa-solid fa-brush"></i>Colores</a></li>
                 <li><a href="<?php echo APPURL; ?>contenidos"<?php isActive($contr, 'contenido'); ?>><i class="fa-solid fa-file-lines"></i>Contenidos</a></li>
                 <li><a href="<?php echo APPURL; ?>contactos"<?php isActive($contr, 'contacto'); ?>><i class="fa-solid fa-id-card"></i>Contactos</a></li>
+                <li><a href="<?php echo APPURL; ?>login/cerrar"><i class="fa-solid fa-id-card"></i>Cerrar sesión</a></li>
             </ul>
             <div id="menu_btn">
                 <div id="burger"></div>

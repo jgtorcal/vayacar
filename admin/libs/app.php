@@ -15,33 +15,51 @@ class App {
         if(empty($url[0])) {
 
             $controller_name = 'main';
+            $login = 1;
+            $su = 0;
 
         } else {
 
             switch ($url[0]) {
                 case 'main':
                     $controller_name = 'main';
+                    $login = 1;
+                    $su = 0;
                     break;
                 case 'usuarios':
                     $controller_name = 'usuario';
+                    $login = 1;
+                    $su = 1;
                     break;
                 case 'coches':
                     $controller_name = 'coche';
+                    $login = 1;
+                    $su = 0;
                     break;
                 case 'marcas':
                     $controller_name = 'marca';
+                    $login = 1;
+                    $su = 1;
                     break;
                 case 'colores':
                     $controller_name = 'color';
+                    $login = 1;
+                    $su = 1;
                     break;
                 case 'contenidos':
                     $controller_name = 'contenido';
+                    $login = 1;
+                    $su = 1;
                     break;
                 case 'contactos':
                     $controller_name = 'contacto';
+                    $login = 1;
+                    $su = 0;
                     break;
                 case 'login':
                     $controller_name = 'login';
+                    $login = 0;
+                    $su = 0;
                     break;
             }
             
@@ -69,6 +87,8 @@ class App {
             $clase = ucfirst($controller_name).'Controller';
             $controller = new $clase;
             $controller->loadModel($controller_name);
+            $controller->getSession();
+            $controller->checkAuth($login, $su);
 
             // Si hay método
             if (isset($url[1])){
@@ -92,7 +112,7 @@ class App {
             } else {
 
                 $controller = new ErrorController();
-                $controller->MuestraError('No existe el método');
+                $controller->MuestraError('No existe el método ' . $method_name);
 
             }
             
