@@ -13,23 +13,42 @@ class LoginController extends Controller {
         $this->view->render('login/index');
     }
 
-    function checkSesion(){
+    // function checkSesion(){
 
-        // Comprobamos si existe la sesión, si no, la creamos
-        if( !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
-            session_start();
-        }
+    //     // Comprobamos si existe la sesión, si no, la creamos
+    //     if( !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
+    //         session_start();
+    //     }
 
-        //print_r($_SESSION);
+    //     //print_r($_SESSION);
 
-        if (isset($_SESSION['email'])){
-            $msg = "SI hay sesión con mail " .$_SESSION['email'];
-            return 1;
-        } else {
-            $msg = "NO hay sesion ";
-            return 0;
-        }
-    }
+    //     if (isset($_SESSION['email'])){
+    //         //$msg = "SI hay sesión con mail " .$_SESSION['email'];
+    //         return 1;
+    //     } else {
+    //         //$msg = "NO hay sesion ";
+    //         return 0;
+    //     }
+    // }
+
+    // function getRol(){
+    //     if ( $this->checkSesion() ){
+
+    //         $rol = $_SESSION['rol'];
+    //         return $rol;
+
+    //     }
+    // }
+
+
+    // function checkUserEmail(){
+    //     if ( $this->checkSesion() ){
+
+    //         $email = $_SESSION['email'];
+    //         return $email;
+
+    //     }
+    // }
 
     function auth(){
 

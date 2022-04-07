@@ -87,8 +87,9 @@ class App {
             $clase = ucfirst($controller_name).'Controller';
             $controller = new $clase;
             $controller->loadModel($controller_name);
-            $controller->getSession();
+            $controller->checkSesion();
             $controller->checkAuth($login, $su);
+            
 
             // Si hay método
             if (isset($url[1])){

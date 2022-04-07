@@ -13,7 +13,7 @@ class ErrorController extends Controller {
 
     function MuestraError($error_string){
 
-        $this->view->mensaje = "$error_string";
+        $this->view->mensaje = $error_string;
         $this->view->render('error/index');
 
 

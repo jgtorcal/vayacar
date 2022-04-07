@@ -43,6 +43,7 @@ class UsuarioModel extends Model {
     public function getByEmail($email) {
 
         // Recuperar info del usuario por email
+        // Usado para el login y auth
         $items = [];
 
         try{

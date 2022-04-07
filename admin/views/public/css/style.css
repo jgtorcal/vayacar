@@ -204,6 +204,8 @@ i {
   z-index: 10; }
   #menu li {
     list-style: none; }
+    #menu li .sesionname {
+      text-align: center; }
     #menu li i {
       color: #31363b;
       width: 20px; }
@@ -244,7 +246,13 @@ i {
     align-items: baseline; }
     #menu li {
       margin: 0px 0px 0px 0px;
-      padding: 20px; }
+      padding: 20px;
+      width: 100%; }
+      #menu li .sesionname {
+        color: #FFFFFF;
+        text-align: left;
+        border-top: 1px solid #FFF;
+        padding-top: 20px; }
       #menu li i {
         color: #FFF;
         width: 20px; }

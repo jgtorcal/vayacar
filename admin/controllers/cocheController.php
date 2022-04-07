@@ -7,7 +7,7 @@ class CocheController extends Controller {
         parent::__construct();
         $this->view->titulo_seccion = 'Gestión de coches';
         $this->view->controller_name = 'coche';
-        $this->view->mensaje = "";
+        $this->view->mensaje = "Lista de coches";
         
     }
 
