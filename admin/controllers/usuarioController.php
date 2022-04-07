@@ -13,65 +13,101 @@ class UsuarioController extends Controller {
         parent::__construct();
         $this->view->titulo_seccion = 'Gestión de usuarios';
         $this->view->controller_name = 'usuario';
-        // $this->view->mensaje = "Lista de usuarios";
-        // $this->view->render('usuario/index');
+        $this->view->mensaje = "";
+        $this->view->renderboton = '<a href="' . APPURL . 'usuarios" class="btn btn-blue">Volver</a>';
         
     }
 
-    // public function saludo($variable = null){
-    //     $this->view->mensaje = "Date por saludado " . $variable;
-    //     $this->view->render('usuario/index');
-    // }
+    // Listar todos los usuarios
+    public function index($mensaje = null){
 
-    public function index(){
-        
-        //$this->view->render('usuario/index');
-        $usuarios = $this->model->get();
+        $usuarios = $this->model->getAll();
         $this->view->usuarios = $usuarios;
-        //var_dump($usuarios);
+        $this->view->mensaje = $mensaje;
         $this->view->render('usuario/index');
 
     }
 
-    public function insert(){
+    // Formulario de nuevo usuario
+    public function new(){
 
-        //echo "creado";
+        $this->view->render('usuario/new');
+
+    }
+
+
+    // Añadir a la BBDD
+    public function create(){
+
         $nombre = $_POST['nombre'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $id_rol = $_POST['id_rol'];
 
-        $this->model->insert(['nombre' => $nombre, 'email' => $email, 'password' => $password]);
-        
-        $this->view->render('usuario/index');
-        
+        if ($this->model->insertUsuario([
+            'nombre' => $nombre, 
+            'email' => $email, 
+            'password' => $password,
+            'id_rol' => $id_rol
+        ])) {
+            $mensaje = "Nuevo usuario creado";
+        } else {
+            $mensaje = 'Ha habido un error creando el usuario';
+        }
+
+        $this->view->mensaje = $mensaje;
+        $this->view->render('usuario/create');
+
     }
 
-    public function new(){
-        
-        $this->view->render('usuario/new');
-        
+    // Formulario de edición
+    public function edit($param = null){
+
+        $id_usuario = $param;
+        $usuario = $this->model->getById($id_usuario);
+        $this->view->usuario = $usuario;
+        $this->view->render('usuario/edit');
+
     }
 
-    public function get($id){
-        
-        $this->view->render('usuario/get');
-        
+    // Update usuario
+    public function update(){
+
+        $id_usuario = $_POST['id_usuario'];
+        $nombre = $_POST['nombre'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $id_rol = $_POST['id_rol'];
+
+        if($this->model->updateUsuario([
+            'id_usuario' => $id_usuario, 
+            'nombre' => $nombre, 
+            'email' => $email, 
+            'password' => $password,
+            'id_rol' => $id_rol
+        ])){
+            $mensaje = "Usuario actualizado correctamente";
+        }else{
+            $mensaje = "No se pudo actualizar el usuario";
+        }
+        $this->view->mensaje = $mensaje;
+        $this->view->render('usuario/update');
     }
 
-    public function update($id){
-        
-        //$this->view->render('usuario/update');
-        
-    }
+    // del usuario
+    public function delete($param = null){
 
-    public function delete($id){
+        $id_usuario = $param;
+
+        if($this->model->deleteUsuario($id_usuario)){
+            $mensaje = "Usuario eliminado correctamente";
+        }else{
+            $mensaje = "No se pudo eliminar el usuario";
+        }
         
+        $this->view->mensaje = $mensaje;
         $this->view->render('usuario/delete');
-        
     }
-
-    
-
 
 
 }

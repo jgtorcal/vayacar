@@ -2,7 +2,8 @@
 
 class Controller {
 
-    // Generamos el objeto vista
+    // General el objeto vista
+    // Le pasamos el rol y el email del usuario a la vista para tratarlo en el sidebar
     public function __construct() {
 
         $this->view = new View();
@@ -11,6 +12,7 @@ class Controller {
         
     }
 
+    // Carga de forma automática el modelo asociado al controlador
     public function loadModel($model){
 
         $url = 'models/'.$model.'model.php';
@@ -26,7 +28,7 @@ class Controller {
 
     }
 
-
+    // Comprueba si un usuario ha iniciado sesión
     function checkSesion(){
 
         // Comprobamos si existe la sesión, si no, la creamos
@@ -35,14 +37,13 @@ class Controller {
         }
 
         if (isset($_SESSION['email'])){
-            //$msg = "SI hay sesión con mail " .$_SESSION['email'];
             return 1;
         } else {
-            //$msg = "NO hay sesion ";
             return 0;
         }
     }
 
+    // Obtiene el rol de la sesión
     function getRol(){
         if ( $this->checkSesion() ){
 
@@ -52,7 +53,7 @@ class Controller {
         }
     }
 
-
+    //Obtiene el email del usuario de la sesión
     function getUserEmail(){
         if ( $this->checkSesion() ){
 
@@ -63,6 +64,7 @@ class Controller {
     }
 
 
+    // Checkea la autorización
     public function checkAuth($login, $su){
 
         //print_r($_SESSION);
@@ -71,10 +73,7 @@ class Controller {
 
         if ( $login == 1){
             if ($sesion_activa == 1){
-
-                // Está logueado
-                // require_once 'controllers/loginController.php';
-                // $sesion = new LoginController();
+                
                 $rol = $this->getRol();
 
                 switch ($su){
@@ -91,6 +90,7 @@ class Controller {
                         if ($rol == 2){
                             
                         } else {
+                            // Mostramos el error de permisos
                             require_once 'controllers/errorController.php';
                             $error = new ErrorController();
                             $error->MuestraError('No tiene permisos');

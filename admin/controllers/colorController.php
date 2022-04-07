@@ -2,14 +2,7 @@
 
 class ColorController extends Controller{
 
-    
-
     function __construct(){
-
-        // $login = true;
-        // $su = 1;
-
-        // parent::checkAuth($login, $su);
 
         parent::__construct();
         $this->view->titulo_seccion = 'Gestión de colores';
