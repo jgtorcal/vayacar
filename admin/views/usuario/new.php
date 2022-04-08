@@ -29,15 +29,21 @@ require 'views/header.php';
 
     <div class="row-1">
         <div class="form-item">
-            <label for="id_rol">Rol</label><br>
+            <label for="id_rol">Rol desde clase</label><br>
             <select id="id_rol" name="id_rol" required>
-                <option value="1" selected>Admin</option>
-                <option value="2">SuperAdmin</option>
+                <?php
+                foreach($this->roles as $row){
+                    ?>
+                    <option value="<?php echo $row->id_rol; ?>"><?php echo $row->nombre; ?></option>
+                    <?php
+                }
+                ?>
             </select><br>
         </div>
     </div>
 
     <input type="submit" form="form" value="Enviar" class="btn btn-verde"></input>
+
     
 
 </form>

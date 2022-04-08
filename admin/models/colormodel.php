@@ -1,5 +1,6 @@
 <?php
 
+require_once('libs/classes/color.php');
 class ColorModel extends Model {
 
     public function __construct(){
@@ -19,13 +20,17 @@ class ColorModel extends Model {
 
             while($row = $query->fetch()){
 
-                $item = new ColorController();
-
+                //$item = new ColorController();
+                $item = new Color;
                 $item->id_color = $row['id_color'];
                 $item->color = $row['color'];
 
                 array_push($items, $item);
             }
+
+            // echo '<pre>';
+            // print_r($items);
+            // echo '</pre>';
 
             return $items;
 
@@ -34,13 +39,15 @@ class ColorModel extends Model {
             return [];
         }
 
+        
+
     }
 
 
     public function getById($id_color) {
 
         // Recuperar color
-        $item = new ColorController();
+        $item = new Color();
 
         $query = $this->db->connect()->prepare("SELECT * FROM colores WHERE id_color = :id_color");
 

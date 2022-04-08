@@ -61,6 +61,11 @@ class App {
                     $login = 0;
                     $su = 0;
                     break;
+                case 'roles':
+                    $controller_name = 'rol';
+                    $login = 0;
+                    $su = 0;
+                    break;
             }
             
         }

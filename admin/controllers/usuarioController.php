@@ -1,5 +1,6 @@
 <?php
 
+require_once 'controllers/rolController.php';
 class UsuarioController extends Controller {
 
     public $nombre;
@@ -30,6 +31,14 @@ class UsuarioController extends Controller {
 
     // Formulario de nuevo usuario
     public function new(){
+
+        $roles = new RolController;
+        $roles_array = $roles->getAllRoles();
+        $this->view->roles = $roles_array;
+
+        // echo '<pre>';
+        // print_r($roles_array);
+        // echo '</pre>';
 
         $this->view->render('usuario/new');
 
@@ -66,6 +75,11 @@ class UsuarioController extends Controller {
         $id_usuario = $param;
         $usuario = $this->model->getById($id_usuario);
         $this->view->usuario = $usuario;
+
+        $roles = new RolController;
+        $roles_array = $roles->getAllRoles();
+        $this->view->roles = $roles_array;
+        
         $this->view->render('usuario/edit');
 
     }
