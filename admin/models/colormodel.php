@@ -1,6 +1,7 @@
 <?php
 
 require_once('libs/classes/color.php');
+
 class ColorModel extends Model {
 
     public function __construct(){
