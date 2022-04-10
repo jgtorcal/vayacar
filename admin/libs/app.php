@@ -71,8 +71,6 @@ class App {
         }
 
 
-        
-
         if (isset($controller_name)){
             $archivoController = 'controllers/' . $controller_name . 'Controller.php';
         } else {
@@ -80,8 +78,6 @@ class App {
             $controller->MuestraError('No existe la ruta especificada');
         }
 
-
-        
 
         // Si existe el controlador, lo llamamos y utilizamos el método que corresponda
         // Si no existe llamamos al controlador de errores
