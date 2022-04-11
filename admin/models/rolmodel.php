@@ -40,10 +40,6 @@ class RolModel extends Model {
 
     }
 
-
-    
-
-
 }
 
 ?>
