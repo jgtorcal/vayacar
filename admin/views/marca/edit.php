@@ -4,7 +4,7 @@ require 'views/header.php';
 
 <h2>Editar marca</h2>
 
-<form action="<?php echo constant('APPURL'); ?>marcas/update" method="POST" class="form" id="form_marca">
+<form action="<?php echo constant('APPURL'); ?>marcas/update" method="POST" class="form" id="form_marca"  enctype="multipart/form-data">
 
     <div class="row-1">
         <div class="form-item">
@@ -22,8 +22,15 @@ require 'views/header.php';
 
     <div class="row-1">
         <div class="form-item">
-            <label for="logo">Logo</label><br>
-            <input type="text" id="logo" name="logo" value="<?php echo $this->marca->logo; ?>"><br>
+            <label for="nombre">Logo</label><br>
+            <img src="<?php echo constant('UPLOADSURL_PUBLIC') . $this->marca->logo; ?>"><br>
+        </div>
+    </div>
+
+    <div class="row-1">
+        <div class="form-item">
+            <label for="logo">Nuevo logo</label><br>
+            <input type="file" id="logo" name="logo" value=""><br>
         </div>
     </div>
 

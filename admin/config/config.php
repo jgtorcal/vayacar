@@ -1,7 +1,11 @@
 <?php
 
 define('APPURL', 'https://vayacar.local.code/admin/');
-define('PUBLICURL', 'https://vayacar.local.code/admin/views/public/');
+
+define('PUBLICURL', APPURL . 'views/public/');
+define('UPLOADSURL', '/admin/views/public/uploads/');
+define('UPLOADSURL_PUBLIC', APPURL . 'views/public/uploads/');
+
 
 define('DB_NAME', 'vayacar');
 define('DB_HOST', 'departamentodeinternet.com');

@@ -28,7 +28,7 @@ require 'views/header.php';
                 <tr id="fila-<?php echo $marca->id_marca; ?>">
                     <td><?php echo $marca->id_marca; ?></td>
                     <td><?php echo $marca->nombre; ?></td>
-                    <td><?php echo $marca->logo; ?></td>
+                    <td><img src="<?php echo constant('UPLOADSURL_PUBLIC') . $marca->logo; ?>" width="50px"></td>
                     <td class="actions">
                         <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'marcas/edit/' . $marca->id_marca; ?>"><i class="fa-solid fa-square-pen btn-edit"></i></a></div>
                         <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'marcas/delete/' . $marca->id_marca; ?>"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>

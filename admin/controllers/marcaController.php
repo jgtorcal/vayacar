@@ -32,19 +32,83 @@ class MarcaController extends Controller{
 
     }
 
+    public function storeImage($file){
+
+        $status = $statusMsg = ''; 
+
+        if(isset($file['logo'])){ 
+
+            $status = 'error'; 
+
+            if(!empty($file["logo"]["name"])) { 
+                // Get file info 
+                $fileName = basename($_FILES["logo"]["name"]); 
+                $fileType = pathinfo($fileName, PATHINFO_EXTENSION); 
+                
+                // Allow certain file formats 
+                $allowTypes = array('jpg','png','jpeg','gif'); 
+                
+                if(in_array($fileType, $allowTypes)){ 
+
+                    $target_dir = constant('UPLOADSURL');
+                    $extarr = explode('.',$file["logo"]["name"]);
+
+                    $filename = $extarr[sizeof($extarr)-2];
+                    $ext = $extarr[sizeof($extarr)-1];
+                    $hash = md5(Date('Ymdgi') . $filename) . '.' . $ext;
+                    //$target_file = $target_dir . $hash;
+                    $target_file = $_SERVER['DOCUMENT_ROOT'] . $target_dir . $hash;
+                    $uploadOk = 1;
+                    $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+                    
+                    $check = getimagesize($file["logo"]["tmp_name"]);
+
+                    if($check !== false) {
+                        $uploadOk = 1;
+                    } else {
+                        $uploadOk = 0;
+                    }
+                    
+                    if ($uploadOk == 0) {
+                    } else {
+
+                        if (move_uploaded_file($file["logo"]["tmp_name"], $target_file)) {
+                            return $hash;
+                        } else {
+                            return NULL;
+                        }
+                    }
+
+                }else{ 
+                    $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
+                } 
+            }else{ 
+                $statusMsg = 'Please select an image file to upload.'; 
+            } 
+        }
+
+    }
+
     // Añadir a la BBDD
     public function create(){
 
         $nombre = $_POST['nombre'];
-        $logo = $_POST['logo'];
         $mensaje = "";
 
-        if ($this->model->insertMarca(['nombre' => $nombre, 'logo' => $logo])) {
-            $mensaje = "Nueva marca creada";
-        } else {
-            $mensaje = 'Ha habido un error insertando la nueva marca';
-        }
+        $hash = $this->storeImage($_FILES);
 
+        if (isset($hash)){
+            
+            if ($this->model->insertMarca(['nombre' => $nombre, 'logo' => $hash])) {
+                $mensaje = "Nueva marca creada";
+            } else {
+                $mensaje = 'Ha habido un error insertando la nueva marca';
+            }
+
+        } else {
+            $mensaje = "No existe la imagen";
+        }
+        
         $this->view->mensaje = $mensaje;
         $this->view->render('marca/create');
 
@@ -65,13 +129,35 @@ class MarcaController extends Controller{
 
         $id_marca = $_POST['id_marca'];
         $nombre  = $_POST['nombre'];
-        $logo  = $_POST['logo'];
+        
+        if (!empty($_FILES['logo']['name'])){
 
-        if($this->model->updateMarca([ 'id_marca' => $id_marca, 'nombre' => $nombre, 'logo' => $logo ])){
-            $mensaje = "Marca actualizada correctamente";
-        }else{
-            $mensaje = "No se pudo actualizar la marca";
+
+            $hash = $this->storeImage($_FILES);
+
+            if (!empty($hash)){
+            
+                if ($this->model->updateMarca([ 'id_marca' => $id_marca, 'nombre' => $nombre, 'logo' => $hash])) {
+                    $mensaje = "Marca actualizada correctamente (nombre y logo)";
+                } else {
+                    $mensaje = 'Ha habido un error insertando la nueva marca  (nombre y logo)';
+                }
+    
+            } else {
+                $mensaje = "No existe la imagen";
+            }
+
+        } else {
+
+            if($this->model->updateMarcasinlogo([ 'id_marca' => $id_marca, 'nombre' => $nombre ])){
+                $mensaje = "Marca actualizada correctamente (nombre)";
+            }else{
+                $mensaje = "No se pudo actualizar la marca (nombre)";
+            }
+
         }
+
+        
         $this->view->mensaje = $mensaje;
         $this->view->render('marca/update');
     }

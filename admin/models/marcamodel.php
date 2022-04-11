@@ -117,6 +117,25 @@ class MarcaModel extends Model {
         }
     }
 
+    public function updateMarcasinlogo($item){
+
+        $query = $this->db->connect()->prepare("UPDATE marcas SET nombre = :nombre WHERE id_marca = :id_marca");
+
+        try{
+            $query->execute([
+                'id_marca'=> $item['id_marca'],
+                'nombre' => $item['nombre']
+            ]);
+
+            return true;
+
+        }catch(PDOException $e){
+
+            return false;
+
+        }
+    }
+
 
 
     public function deleteMarca($id){
