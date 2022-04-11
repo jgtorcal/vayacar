@@ -2,7 +2,7 @@
 require 'views/header.php';
 ?>
 
-<h2>Editar color</h2>
+<h2>Editar contenidos</h2>
 
 <?php echo $this->mensaje; ?>
 

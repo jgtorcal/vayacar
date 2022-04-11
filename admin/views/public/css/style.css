@@ -171,7 +171,7 @@ i {
           grid-template-areas: ". . . ."; } }
     #main_container .form .form-item {
       width: 100%; }
-      #main_container .form .form-item input, #main_container .form .form-item select {
+      #main_container .form .form-item input, #main_container .form .form-item select, #main_container .form .form-item textarea {
         width: 100%;
         padding: 5px 10px; }
 
