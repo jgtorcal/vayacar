@@ -1,29 +1,30 @@
 <?php
 
-require_once 'models/rolmodel.php';
+require_once 'models/provinciamodel.php';
 
-class RolController {
+class ProvinciaController {
 
     function __construct(){
 
-        $this->model = new RolModel;
+        $this->model = new ProvinciaModel;
         
     }
 
 
-    function getAllRoles(){
+    function getAllProvincias(){
 
-        $roles = $this->model->getAll();
-        return $roles;
+        $provincias = $this->model->getAll();
+        return $provincias;
 
     }
 
+
     function index(){
 
-        $roles = $this->getAllRoles();
+        $provincias = $this->getAllProvincias();
 
         echo "<pre>";
-        print_r($roles);
+        print_r($provincias);
         echo "</pre>";
 
     }
@@ -38,8 +39,6 @@ class RolController {
 
     public function checkAuth($login, $su){
     }
-
-    
     
 }
 

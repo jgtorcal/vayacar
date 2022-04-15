@@ -61,8 +61,25 @@ class App {
                     $login = 0;
                     $su = 0;
                     break;
+                
+                // Rutas sin vistas
+                case 'provincias':
+                    $controller_name = 'provincia';
+                    $login = 0;
+                    $su = 0;
+                    break;
                 case 'roles':
                     $controller_name = 'rol';
+                    $login = 0;
+                    $su = 0;
+                    break;
+                case 'condiciones':
+                    $controller_name = 'condicion';
+                    $login = 0;
+                    $su = 0;
+                    break;
+                case 'estados':
+                    $controller_name = 'estado';
                     $login = 0;
                     $su = 0;
                     break;

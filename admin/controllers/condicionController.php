@@ -1,29 +1,30 @@
 <?php
 
-require_once 'models/rolmodel.php';
+require_once 'models/condicionmodel.php';
 
-class RolController {
+class CondicionController {
 
     function __construct(){
 
-        $this->model = new RolModel;
+        $this->model = new CondicionModel;
         
     }
 
 
-    function getAllRoles(){
+    function getAllCondiciones(){
 
-        $roles = $this->model->getAll();
-        return $roles;
+        $condiciones = $this->model->getAll();
+        return $condiciones;
 
     }
 
+
     function index(){
 
-        $roles = $this->getAllRoles();
+        $condiciones = $this->getAllCondiciones();
 
         echo "<pre>";
-        print_r($roles);
+        print_r($condiciones);
         echo "</pre>";
 
     }
@@ -38,8 +39,6 @@ class RolController {
 
     public function checkAuth($login, $su){
     }
-
-    
     
 }
 

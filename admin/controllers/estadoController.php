@@ -1,29 +1,30 @@
 <?php
 
-require_once 'models/rolmodel.php';
+require_once 'models/estadomodel.php';
 
-class RolController {
+class EstadoController {
 
     function __construct(){
 
-        $this->model = new RolModel;
+        $this->model = new EstadoModel;
         
     }
 
 
-    function getAllRoles(){
+    function getAllEstados(){
 
-        $roles = $this->model->getAll();
-        return $roles;
+        $estados = $this->model->getAll();
+        return $estados;
 
     }
 
+
     function index(){
 
-        $roles = $this->getAllRoles();
+        $estados = $this->getAllEstados();
 
         echo "<pre>";
-        print_r($roles);
+        print_r($estados);
         echo "</pre>";
 
     }
@@ -38,8 +39,6 @@ class RolController {
 
     public function checkAuth($login, $su){
     }
-
-    
     
 }
 
