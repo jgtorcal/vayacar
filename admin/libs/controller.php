@@ -9,6 +9,8 @@ class Controller {
         $this->view = new View();
         $this->view->nombre = $this->getUserEmail();
         $this->view->rol = $this->getRol();
+
+        //echo "ejecutado el construct de Controller<br>";
         
     }
 
@@ -25,6 +27,8 @@ class Controller {
             $this->model = new $modelName();
             
         }
+
+        //echo "ejecutado el loadModel de Controller<br>";
 
     }
 

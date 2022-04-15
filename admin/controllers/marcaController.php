@@ -18,10 +18,16 @@ class MarcaController extends Controller{
         $marcas = $this->model->getAll();
         $this->view->marcas = $marcas;
         $this->view->mensaje = $mensaje;
-
-        
-
         $this->view->render('marca/index');
+
+    }
+
+    public function getAllMarcas(){
+
+        parent::loadModel('marca');
+
+        $marcas = $this->model->getAll();
+        return $marcas;
 
     }
 

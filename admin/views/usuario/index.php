@@ -19,11 +19,7 @@ require 'views/header.php';
         <tbody>
             <?php
 
-            include_once 'models/usuariomodel.php';
-
             foreach($this->usuarios as $row){
-
-                $usuario = new UsuarioController();
                 $usuario = $row; 
 
                 ?>

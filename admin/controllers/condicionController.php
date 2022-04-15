@@ -13,6 +13,8 @@ class CondicionController {
 
     function getAllCondiciones(){
 
+        $this->model = new CondicionModel;
+
         $condiciones = $this->model->getAll();
         return $condiciones;
 

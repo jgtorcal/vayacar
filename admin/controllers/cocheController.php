@@ -1,5 +1,10 @@
 <?php
 
+require_once 'controllers/marcaController.php';
+require_once 'controllers/colorController.php';
+require_once 'controllers/provinciaController.php';
+require_once 'controllers/condicionController.php';
+
 class CocheController extends Controller{
 
     function __construct(){
@@ -25,6 +30,27 @@ class CocheController extends Controller{
     // Formulario de nuevo
     public function new(){
 
+        // Añadimaos Marcas
+        $marcas = new MarcaController;
+        $marcas_array = $marcas->getAllMarcas();
+        $this->view->marcas = $marcas_array;
+
+        // Añadimaos Colores
+        $colores = new ColorController;
+        $colores_array = $colores->getAllColores();
+        $this->view->colores = $colores_array;
+
+        // Añadimaos Provincia
+        $provincias = new ProvinciaController;
+        $provincias_array = $provincias->getAllProvincias();
+        $this->view->provincias = $provincias_array;
+
+        // Añadimaos Condiciones
+        $condiciones = new CondicionController;
+        $condiciones_array = $condiciones->getAllCondiciones();
+        $this->view->condiciones = $condiciones_array;
+
+        // Se lo mandamos todo a la vista
         $this->view->render('coche/new');
 
     }
@@ -34,6 +60,8 @@ class CocheController extends Controller{
         $status = $statusMsg = ''; 
 
         if(isset($file['foto'])){ 
+
+            //echo '<pre>'; print_r($file); echo '</pre>';
 
             $status = 'error'; 
 
@@ -50,6 +78,8 @@ class CocheController extends Controller{
                     $target_dir = constant('UPLOADSURL_COCHES');
                     $extarr = explode('.',$file["foto"]["name"]);
 
+                    
+
                     $filename = $extarr[sizeof($extarr)-2];
                     $ext = $extarr[sizeof($extarr)-1];
                     $hash = md5(Date('Ymdgi') . $filename) . '.' . $ext;
@@ -59,6 +89,8 @@ class CocheController extends Controller{
                     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                     
                     $check = getimagesize($file["foto"]["tmp_name"]);
+
+                    //echo '<pre>'; print_r($target_file); echo '</pre>';
 
                     if($check !== false) {
                         $uploadOk = 1;
@@ -75,7 +107,6 @@ class CocheController extends Controller{
                             return NULL;
                         }
                     }
-
                 }else{ 
                     $statusMsg = 'Sorry, only JPG, JPEG, PNG, & GIF files are allowed to upload.'; 
                 } 
@@ -83,6 +114,8 @@ class CocheController extends Controller{
                 $statusMsg = 'Please select an image file to upload.'; 
             } 
         }
+
+        
 
     }
 
@@ -98,7 +131,7 @@ class CocheController extends Controller{
         //$foto = $_POST['foto'];
         $visibilidad = $_POST['visibilidad'];
         $id_marca = $_POST['id_marca'];
-        $id_color = $_POST['referencia'];
+        $id_color = $_POST['id_color'];
         $id_provincia = $_POST['id_provincia'];
         $id_condicion = $_POST['id_condicion'];
 

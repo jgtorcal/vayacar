@@ -27,12 +27,9 @@ require 'views/header.php';
         <tbody>
             <?php
 
-            include_once 'models/cochemodel.php';
-
             foreach($this->coches as $row){
 
-                $marca = new CocheController();
-                $marca = $row; 
+                $coche = $row; 
 
                 ?>
                 <tr id="fila-<?php echo $coche->id_coche; ?>">
@@ -44,16 +41,16 @@ require 'views/header.php';
                     <td><?php echo $coche->puertas; ?></td>
                     <td><?php echo $coche->ano; ?></td>
                     <td><?php echo $coche->precio; ?></td>
-                    <td><img src="<?php echo constant('UPLOADSURL_PUBLIC') . $coche->foto; ?>" width="50px"></td>
+                    <td><img src="<?php echo constant('UPLOADSURL_PUBLIC_COCHES') . $coche->foto; ?>" width="50px"></td>
                     <td><?php echo $coche->visibilidad; ?></td>
                     <td><?php echo $coche->id_marca; ?></td>
                     <td><?php echo $coche->id_color; ?></td>
                     <td><?php echo $coche->id_provincia; ?></td>
-                    <td><?php echo $coche->refeid_condicionrencia; ?></td>
+                    <td><?php echo $coche->id_condicion; ?></td>
 
                     <td class="actions">
-                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'marcas/edit/' . $marca->id_marca; ?>"><i class="fa-solid fa-square-pen btn-edit"></i></a></div>
-                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'marcas/delete/' . $marca->id_marca; ?>"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>
+                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'coches/edit/' . $coche->id_coche; ?>"><i class="fa-solid fa-square-pen btn-edit"></i></a></div>
+                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'coches/delete/' . $coche->id_coche; ?>"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>
                     </td>
                 </tr>
                 <?php 

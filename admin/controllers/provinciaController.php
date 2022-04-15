@@ -13,6 +13,8 @@ class ProvinciaController {
 
     function getAllProvincias(){
 
+        $this->model = new ProvinciaModel;
+
         $provincias = $this->model->getAll();
         return $provincias;
 

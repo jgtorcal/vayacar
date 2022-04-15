@@ -18,10 +18,18 @@ class ColorController extends Controller{
         $colores = $this->model->getAll();
         $this->view->colores = $colores;
         $this->view->mensaje = $mensaje;
-
         
-
         $this->view->render('color/index');
+
+    }
+
+
+    function getAllColores(){
+
+        parent::loadModel('color');
+
+        $colores = $this->model->getAll();
+        return $colores;
 
     }
 
