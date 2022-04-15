@@ -2,7 +2,7 @@
 require 'views/header.php';
 ?>
 
-<h2>Crear marca</h2>
+<h2>Crear Coche</h2>
 
 <form action="<?php echo constant('APPURL'); ?>coches/create" method="POST" class="form" id="form_coche"  enctype="multipart/form-data">
 
