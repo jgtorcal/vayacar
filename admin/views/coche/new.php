@@ -6,7 +6,6 @@ require 'views/header.php';
 
 <form action="<?php echo constant('APPURL'); ?>coches/create" method="POST" class="form" id="form_coche"  enctype="multipart/form-data">
 
-
     <div class="row-4">
         <div class="form-item">
             <label for="id_marca">Marca</label><br>
@@ -61,8 +60,6 @@ require 'views/header.php';
         </div>
     </div>
 
-
-
     <div class="row-1">
         <div class="form-item">
             <label for="modelo">Modelo</label><br>
@@ -98,7 +95,6 @@ require 'views/header.php';
             <input type="number" id="precio" name="precio" value="" min="0" max="100000" required><br>
         </div>
     </div>
-    
 
     <div class="row-2">
         <div class="form-item">
@@ -111,11 +107,6 @@ require 'views/header.php';
             <input type="number" id="visibilidad" name="visibilidad" value="" min="0" max="1" required><br>
         </div>
     </div>
-
-    
-
-
-
 
     <input type="submit" form="form_coche" value="Crear nuevo coche" class="btn btn-verde"></input>
 
