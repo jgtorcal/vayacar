@@ -40,4 +40,32 @@ class ProvinciaModel extends Model {
 
     }
 
+
+
+    public function getById($id_provincia) {
+
+        // Recuperar provincia
+        $item = new Provincia();
+
+        $query = $this->db->connect()->prepare("SELECT * FROM provincias WHERE id_provincia = :id_provincia");
+
+        try{
+
+            $query->execute(['id_provincia' => $id_provincia]);
+
+            while($row = $query->fetch()){
+                $item->id_provincia = $row['id_provincia'];
+                $item->nombre = $row['nombre'];
+            }
+
+            return $item;
+
+        }catch(PDOException $e){
+
+            return null;
+
+        }
+
+    }
+
 }

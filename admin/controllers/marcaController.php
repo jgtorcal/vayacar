@@ -31,6 +31,16 @@ class MarcaController extends Controller{
 
     }
 
+
+    // Formulario de edición
+    public function getMarcaById($param = null){
+
+        $id_marca = $param;
+        $marca = $this->model->getById($id_marca);
+        return $marca;
+
+    }
+
     // Formulario de nuevo
     public function new(){
 

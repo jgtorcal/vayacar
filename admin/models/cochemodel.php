@@ -1,6 +1,11 @@
 <?php
 
 require_once('libs/classes/coche.php');
+//require_once 'controllers/marcaController.php';
+require_once 'models/marcamodel.php';
+require_once 'models/colormodel.php';
+require_once 'models/provinciamodel.php';
+require_once 'models/condicionmodel.php';
 
 class CocheModel extends Model {
 
@@ -20,7 +25,9 @@ class CocheModel extends Model {
             $query = $this->db->connect()->query("SELECT * FROM coches");
 
             while($row = $query->fetch()){
+
                 $item = new Coche;
+
                 $item->id_coche = $row['id_coche'];
                 $item->referencia = $row['referencia'];
                 $item->modelo = $row['modelo'];
@@ -34,6 +41,26 @@ class CocheModel extends Model {
                 $item->id_color = $row['id_color'];
                 $item->id_provincia = $row['id_provincia'];
                 $item->id_condicion = $row['id_condicion'];
+
+                // Nombre del tema en vez del ID
+                $marca_query = new MarcaModel;
+                $marca = $marca_query->getById($item->id_marca);
+                $item->marca_name = $marca->nombre;
+
+                $color_query = new ColorModel;
+                $color = $color_query->getById($item->id_color);
+                $item->color_name = $color->color;
+
+                $provincia_query = new ProvinciaModel;
+                $provincia = $provincia_query->getById($item->id_provincia);
+                $item->provincia_name = $provincia->nombre;
+
+                $condicion_query = new CondicionModel;
+                $condicion = $condicion_query->getById($item->id_condicion);
+                $item->condicion_name = $condicion->nombre;
+
+                //echo '<pre>' . print_r($marca) . '</pre>';
+                
 
                 array_push($items, $item);
             }
