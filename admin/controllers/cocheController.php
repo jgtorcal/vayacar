@@ -1,9 +1,14 @@
 <?php
 
-require_once 'controllers/marcaController.php';
-require_once 'controllers/colorController.php';
-require_once 'controllers/provinciaController.php';
-require_once 'controllers/condicionController.php';
+// require_once 'controllers/marcaController.php';
+// require_once 'controllers/colorController.php';
+// require_once 'controllers/provinciaController.php';
+// require_once 'controllers/condicionController.php';
+
+require_once 'models/marcaModel.php';
+require_once 'models/colorModel.php';
+require_once 'models/provinciaModel.php';
+require_once 'models/condicionModel.php';
 
 class CocheController extends Controller{
 
@@ -31,23 +36,23 @@ class CocheController extends Controller{
     public function new(){
 
         // Añadimaos Marcas
-        $marcas = new MarcaController;
-        $marcas_array = $marcas->getAllMarcas();
+        $marcas = new MarcaModel;
+        $marcas_array = $marcas->getAll();
         $this->view->marcas = $marcas_array;
 
         // Añadimaos Colores
-        $colores = new ColorController;
-        $colores_array = $colores->getAllColores();
+        $colores = new ColorModel;
+        $colores_array = $colores->getAll();
         $this->view->colores = $colores_array;
 
         // Añadimaos Provincia
-        $provincias = new ProvinciaController;
-        $provincias_array = $provincias->getAllProvincias();
+        $provincias = new ProvinciaModel;
+        $provincias_array = $provincias->getAll();
         $this->view->provincias = $provincias_array;
 
         // Añadimaos Condiciones
-        $condiciones = new CondicionController;
-        $condiciones_array = $condiciones->getAllCondiciones();
+        $condiciones = new CondicionModel;
+        $condiciones_array = $condiciones->getAll();
         $this->view->condiciones = $condiciones_array;
 
         // Se lo mandamos todo a la vista
