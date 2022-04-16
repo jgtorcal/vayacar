@@ -52,7 +52,7 @@ require 'views/header.php';
 
                     <td class="actions">
                         <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'coches/edit/' . $coche->id_coche; ?>"><i class="fa-solid fa-square-pen btn-edit"></i></a></div>
-                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'coches/delete/' . $coche->id_coche; ?>"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>
+                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'coches/delete/' . $coche->id_coche; ?>" onclick="return confirm('¿Estás seguro de querer eliminar este coche?');"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>
                     </td>
                 </tr>
                 <?php 

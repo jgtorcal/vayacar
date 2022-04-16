@@ -29,7 +29,7 @@ require 'views/header.php';
                     <td><?php echo $color->color; ?></td>
                     <td class="actions">
                         <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'colores/edit/' . $color->id_color; ?>"><i class="fa-solid fa-square-pen btn-edit"></i></a></div>
-                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'colores/delete/' . $color->id_color; ?>"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>
+                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'colores/delete/' . $color->id_color; ?>" onclick="return confirm('¿Estás seguro de querer eliminar este color?');"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>
                     </td>
                 </tr>
                 <?php 

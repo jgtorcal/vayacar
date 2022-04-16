@@ -31,7 +31,7 @@ require 'views/header.php';
                     <td><img src="<?php echo constant('UPLOADSURL_PUBLIC') . $marca->logo; ?>" width="50px"></td>
                     <td class="actions">
                         <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'marcas/edit/' . $marca->id_marca; ?>"><i class="fa-solid fa-square-pen btn-edit"></i></a></div>
-                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'marcas/delete/' . $marca->id_marca; ?>"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>
+                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'marcas/delete/' . $marca->id_marca; ?>" onclick="return confirm('¿Estás seguro de querer eliminar esta marca?');"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>
                     </td>
                 </tr>
                 <?php 
