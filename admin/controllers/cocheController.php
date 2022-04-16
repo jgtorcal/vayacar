@@ -200,7 +200,7 @@ class CocheController extends Controller{
         $condiciones = new CondicionModel;
         $condiciones_array = $condiciones->getAll();
         $this->view->condiciones = $condiciones_array;
-        
+
         $this->view->render('coche/edit');
 
     }
@@ -215,38 +215,40 @@ class CocheController extends Controller{
         $puertas = $_POST['puertas'];
         $ano = $_POST['ano'];
         $precio = $_POST['precio'];
-        $foto = $_POST['foto'];
+        //$foto = $_POST['foto'];
         $visibilidad = $_POST['visibilidad'];
         $id_marca = $_POST['id_marca'];
-        $id_color = $_POST['referencia'];
+        $id_color = $_POST['id_color'];
         $id_provincia = $_POST['id_provincia'];
         $id_condicion = $_POST['id_condicion'];
-        
-        if (!empty($_FILES['foto_coche']['name'])){
 
+        $datos_update = [
+            'id_coche' => $id_coche,
+            'referencia' => $referencia,
+            'modelo' => $modelo, 
+            'descripcion' => $descripcion, 
+            'puertas' => $puertas, 
+            'ano' => $ano, 
+            'precio' => $precio,
+            'visibilidad' => $visibilidad, 
+            'id_marca' => $id_marca, 
+            'id_color' => $id_color, 
+            'id_provincia' => $id_provincia, 
+            'id_condicion' => $id_condicion
+        ];
+        
+        if (!empty($_FILES['foto']['name'])){
 
             $hash = $this->storeImage($_FILES);
 
+            $datos_update['foto'] = $hash;
+
             if (!empty($hash)){
             
-                if ($this->model->updateCoche([ 
-                    'id_coche' => $id_coche,
-                    'referencia' => $referencia,
-                    'modelo' => $modelo, 
-                    'descripcion' => $descripcion, 
-                    'puertas' => $puertas, 
-                    'ano' => $ano, 
-                    'precio' => $precio,  
-                    'foto' => $hash,
-                    'visibilidad' => $visibilidad, 
-                    'id_marca' => $id_marca, 
-                    'id_color' => $id_color, 
-                    'id_provincia' => $id_provincia, 
-                    'id_condicion' => $id_condicion
-                    ])) {
-                    $mensaje = "Coche actualizada correctamente (nombre y logo)";
+                if ($this->model->updateCoche($datos_update)) {
+                    $mensaje = "Coche actualizada correctamente (con foto)";
                 } else {
-                    $mensaje = 'Ha habido un error insertando el nuevo logo  (nombre y logo)';
+                    $mensaje = 'Ha habido un error insertando el nuevo logo  (con foto)';
                 }
     
             } else {
@@ -255,13 +257,11 @@ class CocheController extends Controller{
 
         } else {
 
-            // if($this->model->updateCocheinlogo([ 'id_marca' => $id_marca, 'nombre' => $nombre ])){
-            //     $mensaje = "Marca actualizada correctamente (nombre)";
-            // }else{
-            //     $mensaje = "No se pudo actualizar la marca (nombre)";
-            // }
-
-            echo "error 007";
+            if ($this->model->updateCoche($datos_update)) {
+                $mensaje = "Coche actualizada correctamente (sin foto)";
+            } else {
+                $mensaje = 'Ha habido un error insertando el nuevo logo  (sin foto)';
+            }
 
         }
 
@@ -270,7 +270,11 @@ class CocheController extends Controller{
         $this->view->render('coche/update');
     }
 
-    // del color
+
+
+
+
+    // del coche
     public function delete($param = null){
 
         $id_coche = $param;

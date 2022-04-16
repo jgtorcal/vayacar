@@ -2,7 +2,7 @@
 require 'views/header.php';
 ?>
 
-<h2>Editar marca</h2>
+<h2>Editar coche</h2>
 
 <?php echo $this->mensaje; ?>
 

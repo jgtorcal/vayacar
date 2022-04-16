@@ -1,15 +1,15 @@
 <?php
 require 'views/header.php';
 
-echo '<pre>';
-print_r($this->coche);
-echo '</pre>';
+// echo '<pre>';
+// print_r($this->coche);
+// echo '</pre>';
 
 ?>
 
-<h2>Crear Coche</h2>
+<h2>Editar Coche</h2>
 
-<form action="<?php echo constant('APPURL'); ?>coches/create" method="POST" class="form" id="form_coche"  enctype="multipart/form-data">
+<form action="<?php echo constant('APPURL'); ?>coches/update" method="POST" class="form" id="form_coche"  enctype="multipart/form-data">
 
     <div class="row-4">
         <div class="form-item">
@@ -108,22 +108,32 @@ echo '</pre>';
     <div class="row-2">
 
         <div class="form-item">
-            <label for="nombre">Foto</label><br>
+            <label for="nombre">Foto actual</label><br>
             <img src="<?php echo constant('UPLOADSURL_PUBLIC_COCHES') . $this->coche->foto; ?>"><br>
         </div><br>
 
         <div class="form-item">
             <label for="foto">Foto</label><br>
-            <input type="file" id="foto" name="foto" value="<?php echo $this->coche->foto; ?>" required><br>
+            <input type="file" id="foto" name="foto" value="<?php echo $this->coche->foto; ?>"><br>
         </div>
         
         <div class="form-item">
             <label for="visibilidad">Visibilidad</label><br>
-            <input type="number" id="visibilidad" name="visibilidad" value="<?php echo $this->coche->visibilidad; ?>" min="0" max="1" required><br>
+
+            <select id="visibilidad" name="visibilidad" required>
+                <?php
+                $selected = $this->coche->visibilidad;
+                ?>
+                <option value="0" <?php if($selected == 0){echo 'selected';} ?>>NO</option>
+                <option value="1" <?php if($selected == 1){echo 'selected';} ?>>SÍ</option>
+            </select><br>
+
         </div>
     </div>
 
-    <input type="submit" form="form_coche" value="Crear nuevo coche" class="btn btn-verde"></input>
+    <input type="hidden" id="id_coche" name="id_coche" value="<?php echo $this->coche->id_coche; ?>" min="0" max="1"><br>
+
+    <input type="submit" form="form_coche" value="Modificar coche" class="btn btn-verde"></input>
 
 </form>
 

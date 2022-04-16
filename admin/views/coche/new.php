@@ -103,8 +103,14 @@ require 'views/header.php';
         </div>
         
         <div class="form-item">
-            <label for="visibilidad">Visibilidad</label><br>
-            <input type="number" id="visibilidad" name="visibilidad" value="" min="0" max="1" required><br>
+            <label for="visibilidad">Visibilidad en la web</label><br>
+
+            <select id="visibilidad" name="visibilidad" required>
+                <option value="0">NO</option>
+                <option value="1">SÍ</option>
+            </select><br>
+
+
         </div>
     </div>
 
