@@ -1,10 +1,5 @@
 <?php
 
-// require_once 'controllers/marcaController.php';
-// require_once 'controllers/colorController.php';
-// require_once 'controllers/provinciaController.php';
-// require_once 'controllers/condicionController.php';
-
 require_once 'models/marcaModel.php';
 require_once 'models/colorModel.php';
 require_once 'models/provinciaModel.php';
@@ -185,6 +180,27 @@ class CocheController extends Controller{
         $id_coche = $param;
         $coche = $this->model->getById($id_coche);
         $this->view->coche = $coche;
+
+        // Añadimaos Marcas
+        $marcas = new MarcaModel;
+        $marcas_array = $marcas->getAll();
+        $this->view->marcas = $marcas_array;
+
+        // Añadimaos Colores
+        $colores = new ColorModel;
+        $colores_array = $colores->getAll();
+        $this->view->colores = $colores_array;
+
+        // Añadimaos Provincia
+        $provincias = new ProvinciaModel;
+        $provincias_array = $provincias->getAll();
+        $this->view->provincias = $provincias_array;
+
+        // Añadimaos Condiciones
+        $condiciones = new CondicionModel;
+        $condiciones_array = $condiciones->getAll();
+        $this->view->condiciones = $condiciones_array;
+        
         $this->view->render('coche/edit');
 
     }
