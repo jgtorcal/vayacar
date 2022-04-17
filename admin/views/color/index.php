@@ -9,7 +9,7 @@ require 'views/header.php';
         <thead>
             <tr>
                 <th>ID</th>
-                <th>Nombre</th>
+                <th>Nombre (usos)</th>
                 <th></th>
             </tr>
         </thead>
@@ -26,7 +26,7 @@ require 'views/header.php';
                 ?>
                 <tr id="fila-<?php echo $color->id_color; ?>">
                     <td><?php echo $color->id_color; ?></td>
-                    <td><?php echo $color->color; ?></td>
+                    <td><?php echo $color->color; echo ' ('.$color->usos.')'; ?></td>
                     <td class="actions">
                         <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'colores/edit/' . $color->id_color; ?>"><i class="fa-solid fa-square-pen btn-edit"></i></a></div>
                         <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'colores/delete/' . $color->id_color; ?>" onclick="return confirm('¿Estás seguro de querer eliminar este color?');"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>

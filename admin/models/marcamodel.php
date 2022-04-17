@@ -20,19 +20,26 @@ class MarcaModel extends Model {
             $query = $this->db->connect()->query("SELECT * FROM marcas");
 
             while($row = $query->fetch()){
-
-                //$item = new ColorController();
+                
                 $item = new Marca;
                 $item->id_marca = $row['id_marca'];
                 $item->nombre = $row['nombre'];
                 $item->logo = $row['logo'];
 
+                //Sabemos si la marca se usa o no en los coches
+                $query_usos = $this->db->connect()->prepare("SELECT COUNT(*) AS contador FROM coches WHERE id_marca = :id_marca;");
+                try{
+                    $query_usos->execute(['id_marca' => $row['id_marca']]);
+                    while($row2 = $query_usos->fetch()){
+                        $item->usos = $row2['contador'];
+                    }
+                }catch(PDOException $e){
+                    echo $e;
+                    return null;
+                }
+
                 array_push($items, $item);
             }
-
-            // echo '<pre>';
-            // print_r($items);
-            // echo '</pre>';
 
             return $items;
 
@@ -58,9 +65,23 @@ class MarcaModel extends Model {
             $query->execute(['id_marca' => $id_marca]);
 
             while($row = $query->fetch()){
+
                 $item->id_marca = $row['id_marca'];
                 $item->nombre = $row['nombre'];
                 $item->logo = $row['logo'];
+
+                // Sabemos si la marca se usa o no en los coches
+                $query_usos = $this->db->connect()->prepare("SELECT COUNT(*) AS contador FROM coches WHERE id_marca = :id_marca;");
+                try{
+                    $query_usos->execute(['id_marca' => $row['id_marca']]);
+                    while($row2 = $query_usos->fetch()){
+                        $item->usos = $row2['contador'];
+                    }
+                }catch(PDOException $e){
+                    echo $e;
+                    return null;
+                }
+
             }
 
             return $item;
@@ -140,21 +161,26 @@ class MarcaModel extends Model {
 
     public function deleteMarca($id){
 
-        $query = $this->db->connect()->prepare("DELETE FROM marcas WHERE id_marca = :id");
-        
-        try{
+        $marca = $this->getById($id);
 
-            $query->execute([
-                'id'=> $id,
-            ]);
+        if ($marca->usos > 0){
+            // Se usa, no se puede borrar
+            $mensaje = 0;
+        } else {
 
-            return true;
-
-        }catch(PDOException $e){
-
-            return false;
-
+            // No se usa la marca, se puede borrar
+            $query = $this->db->connect()->prepare("DELETE FROM marcas WHERE id_marca = :id");
+            try{
+                $query->execute([
+                    'id'=> $id,
+                ]);
+                $mensaje = 1;
+            }catch(PDOException $e){
+                $mensaje = 2;
+            }
         }
+
+        return $mensaje;        
     }
     
 }

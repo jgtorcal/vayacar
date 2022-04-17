@@ -17,6 +17,7 @@ class MarcaController extends Controller{
 
         $marcas = $this->model->getAll();
         $this->view->marcas = $marcas;
+
         $this->view->mensaje = $mensaje;
         $this->view->render('marca/index');
 
@@ -183,10 +184,22 @@ class MarcaController extends Controller{
 
         $id_marca = $param;
 
-        if($this->model->deleteMarca($id_marca)){
-            $mensaje = "Marca eliminada correctamente";
-        }else{
-            $mensaje = "No se pudo eliminar la marca";
+        // 0 La marca está siendo usada por algún coche, no se puede borrar
+        // 1 La marca se ha borrado correctamente
+        // 2 Ha habido un error borrando la marca
+
+        $resultado_delete = $this->model->deleteMarca($id_marca);
+
+        switch ($resultado_delete){
+            case 0: 
+                $mensaje = 'La marca está siendo usada por algún coche, no se puede borrar';
+                break;
+            case 1:
+                $mensaje = 'La marca se ha borrado correctamente';
+                break;
+            case 2:
+                $mensaje = 'Ha habido un error borrando la marca';
+                break;
         }
         
         $this->view->mensaje = $mensaje;

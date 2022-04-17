@@ -87,10 +87,22 @@ class ColorController extends Controller{
 
         $id_color = $param;
 
-        if($this->model->deleteColor($id_color)){
-            $mensaje = "Color eliminado correctamente";
-        }else{
-            $mensaje = "No se pudo eliminar el color";
+        // 0 El color está siendo usada por algún coche, no se puede borrar
+        // 1 El color se ha borrado correctamente
+        // 2 Ha habido un error borrando el color
+
+        $resultado_delete = $this->model->deleteColor($id_color);
+
+        switch ($resultado_delete){
+            case 0: 
+                $mensaje = 'El color está siendo usada por algún coche, no se puede borrar';
+                break;
+            case 1:
+                $mensaje = 'El color se ha borrado correctamente';
+                break;
+            case 2:
+                $mensaje = 'Ha habido un error borrando el color';
+                break;
         }
         
         $this->view->mensaje = $mensaje;

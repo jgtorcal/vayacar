@@ -21,17 +21,24 @@ class ColorModel extends Model {
 
             while($row = $query->fetch()){
 
-                //$item = new ColorController();
                 $item = new Color;
                 $item->id_color = $row['id_color'];
                 $item->color = $row['color'];
 
+                // Sabemos si el color se usa o no en los coches
+                $query_usos = $this->db->connect()->prepare("SELECT COUNT(*) AS contador FROM coches WHERE id_color = :id_color;");
+                try{
+                    $query_usos->execute(['id_color' => $row['id_color']]);
+                    while($row2 = $query_usos->fetch()){
+                        $item->usos = $row2['contador'];
+                    }
+                }catch(PDOException $e){
+                    echo $e;
+                    return null;
+                }
+
                 array_push($items, $item);
             }
-
-            // echo '<pre>';
-            // print_r($items);
-            // echo '</pre>';
 
             return $items;
 
@@ -59,6 +66,19 @@ class ColorModel extends Model {
             while($row = $query->fetch()){
                 $item->id_color = $row['id_color'];
                 $item->color = $row['color'];
+
+                // Sabemos si el color se usa o no en los coches
+                $query_usos = $this->db->connect()->prepare("SELECT COUNT(*) AS contador FROM coches WHERE id_color = :id_color;");
+                try{
+                    $query_usos->execute(['id_color' => $row['id_color']]);
+                    while($row2 = $query_usos->fetch()){
+                        $item->usos = $row2['contador'];
+                    }
+                }catch(PDOException $e){
+                    echo $e;
+                    return null;
+                }
+
             }
 
             return $item;
@@ -117,21 +137,29 @@ class ColorModel extends Model {
 
     public function deleteColor($id){
 
-        $query = $this->db->connect()->prepare("DELETE FROM colores WHERE id_color = :id");
-        
-        try{
+        $color = $this->getById($id);
 
-            $query->execute([
-                'id'=> $id,
-            ]);
+        if ($color->usos > 0){
+            // Se usa, no se puede borrar
+            $mensaje = 0;
+        } else {
 
-            return true;
-
-        }catch(PDOException $e){
-
-            return false;
+            // No se usa, se puede borrar
+            $query = $this->db->connect()->prepare("DELETE FROM colores WHERE id_color = :id");
+            try{
+                $query->execute([
+                    'id'=> $id,
+                ]);
+                $mensaje = 1;
+            }catch(PDOException $e){
+                $mensaje = 2;
+            }
 
         }
+
+        return $mensaje;
+
+        
     }
     
 }

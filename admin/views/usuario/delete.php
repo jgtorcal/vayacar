@@ -4,7 +4,7 @@ require 'views/header.php';
 
 <h2>Eliminar usuario</h2>
 
-<?php echo $this->mensaje; ?>
+<div class="mensaje"><?php echo $this->mensaje; ?></div>
 
 <?php echo $this->renderboton; ?>
 

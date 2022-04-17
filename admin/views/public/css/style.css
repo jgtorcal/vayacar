@@ -192,6 +192,12 @@ i {
   .btn.btn-blue {
     background-color: #219ebc; }
 
+.mensaje {
+  background-color: #F3F3F3;
+  border: 1px solid #219ebc;
+  padding: 20px;
+  margin: 20px 1px; }
+
 #menu {
   display: none;
   flex-direction: column;
