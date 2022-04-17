@@ -258,6 +258,24 @@ class CocheModel extends Model {
 
         }
     }
+
+
+    public function contarCoches(){
+
+        $query = $this->db->connect()->prepare("SELECT COUNT(*) AS contador FROM coches");
+        
+        try{
+            $query->execute();
+            while($row = $query->fetch()){
+                $usos_num = $row['contador'];
+            }
+        }catch(PDOException $e){
+            echo $e; 
+        }
+
+        return $usos_num;
+
+    }
     
 }
 

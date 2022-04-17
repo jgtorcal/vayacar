@@ -42,10 +42,7 @@ require 'views/header.php';
                     <td><?php echo $coche->modelo; ?></td>
                     <td><?php echo $coche->puertas; ?></td>
                     <td><?php echo $coche->ano; ?></td>
-                    <td><?php echo $coche->precio . ' €'; ?>
-                    </td>
-                    
-                    
+                    <td><?php echo $coche->precio . ' €'; ?></td>
                     <td><?php echo $coche->color_name; ?></td>
                     <td><?php echo $coche->provincia_name; ?></td>
                     <td><?php echo $coche->condicion_name; ?></td>

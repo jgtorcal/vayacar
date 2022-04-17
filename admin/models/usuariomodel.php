@@ -171,6 +171,23 @@ class UsuarioModel extends Model {
 
         }
     }
+
+    public function contarUsuarios(){
+
+        $query = $this->db->connect()->prepare("SELECT COUNT(*) AS contador FROM usuarios");
+        
+        try{
+            $query->execute();
+            while($row = $query->fetch()){
+                $usos_num = $row['contador'];
+            }
+        }catch(PDOException $e){
+            echo $e; 
+        }
+
+        return $usos_num;
+
+    }
     
 }
 

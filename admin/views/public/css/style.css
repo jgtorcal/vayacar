@@ -300,4 +300,31 @@ i {
       #login-main form .login-item input {
         padding: 5px 10px; }
 
+#resumen-box {
+  width: 100%;
+  max-width: 800px; }
+  #resumen-box #resumen {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    gap: 20px;
+    padding: 40px 0px; }
+    #resumen-box #resumen .item {
+      display: flex;
+      flex-direction: column;
+      width: 200px;
+      padding: 40px;
+      background-color: #F3F3F3;
+      align-content: center;
+      align-items: center;
+      flex: 1; }
+      #resumen-box #resumen .item .item-ico i {
+        margin-right: 0px;
+        font-size: 2rem;
+        color: #219ebc; }
+      #resumen-box #resumen .item .item-number {
+        font-size: 1.5rem;
+        font-weight: 600; }
+
 /*# sourceMappingURL=style.css.map */

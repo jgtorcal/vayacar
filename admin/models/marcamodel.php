@@ -182,6 +182,25 @@ class MarcaModel extends Model {
 
         return $mensaje;        
     }
+
+
+
+    public function contarMarcas(){
+
+        $query = $this->db->connect()->prepare("SELECT COUNT(*) AS contador FROM marcas");
+        
+        try{
+            $query->execute();
+            while($row = $query->fetch()){
+                $usos_num = $row['contador'];
+            }
+        }catch(PDOException $e){
+            echo $e; 
+        }
+
+        return $usos_num;
+
+    }
     
 }
 

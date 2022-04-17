@@ -1,0 +1,43 @@
+#resumen-box {
+
+    width: 100%;
+    max-width: 800px;
+
+    #resumen {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 20px;
+        padding: 40px 0px;
+
+        .item {
+
+            display: flex;
+            flex-direction: column;
+            width: 200px;
+            padding: 40px;
+            background-color: $gris_fondo;
+            align-content: center;
+            align-items: center;
+            flex: 1;
+
+            .item-ico i {
+
+                margin-right: 0px;
+                font-size: 2rem;
+                color: $green;
+
+            }
+
+            .item-number {
+                font-size: 1.5rem;
+                font-weight: 600;
+
+            }
+
+            .item-text {
+            }
+        }
+    }
+}
