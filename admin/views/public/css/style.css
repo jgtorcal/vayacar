@@ -109,6 +109,19 @@ i {
   #main_container .tableback td {
     border: 1px solid #C0C0C0;
     padding: 10px; }
+    #main_container .tableback td.conlink a {
+      text-decoration: none;
+      background-color: #219ebc;
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: #FFFFFF; }
+      #main_container .tableback td.conlink a:hover {
+        background-color: #31363b;
+        color: #FFFFFF; }
+    #main_container .tableback td.conlink span {
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: #FFFFFF; }
     #main_container .tableback td.actions .tablebtn {
       margin-right: 10px;
       display: inline-block; }
@@ -176,6 +189,9 @@ i {
         padding: 5px 10px; }
       #main_container .form .form-item input[type=file] {
         padding: 5px 0px; }
+      #main_container .form .form-item input:read-only {
+        background-color: #F3F3F3;
+        border: none; }
 
 .btn {
   padding: 10px 13px;

@@ -25,6 +25,28 @@
 		border:1px solid $color_border_tabla;
 		padding:10px;
 
+        &.conlink {
+            a {
+                text-decoration: none;
+                background-color: $green;
+                padding: 5px 10px;
+                border-radius: 5px;
+                color: #FFFFFF;
+    
+                &:hover {
+                    background-color: $color_text;
+                    color: #FFFFFF;
+                }
+            }
+
+            span {
+                padding: 5px 10px;
+                border-radius: 5px;
+                color: #FFFFFF;
+            }
+        }
+        
+
         &.actions {
 
             .tablebtn {
@@ -135,6 +157,12 @@
             input[type=file] {
                 padding: 5px 0px;
             }
+
+            input:read-only {
+                background-color: $gris_fondo;
+                border: none;
+            }
+
         }
     }
 

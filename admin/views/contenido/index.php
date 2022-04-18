@@ -40,8 +40,6 @@ require 'views/header.php';
         <div class="form-item">
             <label for="quienes_somos">Quienes somos</label><br>
             <textarea id="quienes_somos" name="quienes_somos" rows="10"><?php echo html_entity_decode(htmlspecialchars_decode($this->contenidos[0]->quienes_somos)); ?></textarea>
-
-            
         </div>
     </div>
 

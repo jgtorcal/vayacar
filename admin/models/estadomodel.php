@@ -27,6 +27,7 @@ class EstadoModel extends Model {
 
                 $item->id_estado = $row['id_estado'];
                 $item->nombre = $row['nombre'];
+                $item->color = $row['color'];
 
                 array_push($items, $item);
             }
@@ -36,6 +37,34 @@ class EstadoModel extends Model {
         } catch(PDOException $e){
 
             return [];
+        }
+
+    }
+
+
+    public function getById($id_estado) {
+
+        // Recuperar estado
+        $item = new Estado();
+
+        $query = $this->db->connect()->prepare("SELECT * FROM estados WHERE id_estado = :id_estado");
+
+        try{
+
+            $query->execute(['id_estado' => $id_estado]);
+
+            while($row = $query->fetch()){
+                $item->id_estado = $row['id_estado'];
+                $item->nombre = $row['nombre'];
+                $item->color = $row['color'];
+            }
+
+            return $item;
+
+        }catch(PDOException $e){
+
+            return null;
+
         }
 
     }

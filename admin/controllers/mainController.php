@@ -3,6 +3,7 @@
 require_once 'models/usuariomodel.php';
 require_once 'models/cochemodel.php';
 require_once 'models/marcamodel.php';
+require_once 'models/contactomodel.php';
 class MainController extends Controller {
 
     function __construct() {
@@ -28,10 +29,9 @@ class MainController extends Controller {
         $num_marcas = $this->model->contarMarcas();
         $this->view->num_marcas = $num_marcas;
 
-
-
-
-        $this->view->num_contactos = 666;
+        $this->model = new ContactoModel;
+        $num_contactos = $this->model->contarContactos();
+        $this->view->num_contactos = $num_contactos;
 
         $this->view->render('main/index');
 
