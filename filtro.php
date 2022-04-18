@@ -1,3 +1,55 @@
+<?php
+// Consultas
+$db = new Database;
+
+// Extraemos las marcas
+$marcas = [];
+try{
+    $query = $db->connect()->query('SELECT * FROM marcas');
+
+    while($row = $query->fetch()){
+        array_push($marcas, $row);
+    }
+} catch(PDOException $e){
+}
+
+// Extraemos los colores
+$colores = [];
+try{
+    $query = $db->connect()->query('SELECT * FROM colores');
+
+    while($row = $query->fetch()){
+        array_push($colores, $row);
+    }
+} catch(PDOException $e){
+}
+
+// Extraemos las condiciones
+$condiciones = [];
+try{
+    $query = $db->connect()->query('SELECT * FROM condiciones');
+
+    while($row = $query->fetch()){
+        array_push($condiciones, $row);
+    }
+} catch(PDOException $e){
+}
+
+// Extraemos las provincias
+$provincias = [];
+try{
+    $query = $db->connect()->query('SELECT * FROM provincias');
+
+    while($row = $query->fetch()){
+        array_push($provincias, $row);
+    }
+} catch(PDOException $e){
+}
+
+
+?>
+
+
 <section class="filtrobox">
 
     <div class="titulobox">
@@ -15,9 +67,13 @@
                     <div class="title">Marca</div>
                     <select id="marca" name="marca" >
                         <option selected="selected" value="all">Todas</option>
-                        <option value="39">Kia</option>
-                        <option value="40">BMW</option>
-                        <option value="43">Citroen</option>
+                        <?php
+                        foreach ($marcas as $marca){
+                            ?>
+                            <option value="<?php echo $marca['id_marca']; ?>"><?php echo $marca['nombre']; ?></option>
+                            <?php
+                        }
+                        ?>
                     </select>
                 </div>
 
@@ -25,8 +81,13 @@
                     <div class="title">Color</div>
                     <select id="color" name="color" >
                         <option selected="selected" value="all">Todos</option>
-                        <option value="1">Negro</option>
-                        <option value="48">Azul</option>
+                        <?php
+                        foreach ($colores as $color){
+                            ?>
+                            <option value="<?php echo $color['id_color']; ?>"><?php echo $color['color']; ?></option>
+                            <?php
+                        }
+                        ?>
                     </select>
                 </div>
 
@@ -34,8 +95,13 @@
                     <div class="title">Condición</div>
                     <select id="condicion" name="condicion" >
                         <option selected="selected" value="all">Todas</option>
-                        <option value="1">Kmall</option>
-                        <option value="2">Bueno</option>
+                        <?php
+                        foreach ($condiciones as $condicion){
+                            ?>
+                            <option value="<?php echo $condicion['id_condicion']; ?>"><?php echo $condicion['nombre']; ?></option>
+                            <?php
+                        }
+                        ?>
                     </select>
                 </div>
 
@@ -43,10 +109,13 @@
                     <div class="title">Provincia</div>
                     <select id="provincia" name="provincia" >
                         <option selected="selected" value="all">Todas</option>
-                        <option value="1">Valencia</option>
-                        <option value="2">Aragón</option>
-                        <option value="3">3</option>
-                        <option value="4">4</option>
+                        <?php
+                        foreach ($provincias as $provincia){
+                            ?>
+                            <option value="<?php echo $provincia['id_provincia']; ?>"><?php echo $provincia['nombre']; ?></option>
+                            <?php
+                        }
+                        ?>
                     </select>
                 </div>
 

@@ -11,7 +11,7 @@
 
             <?php
 
-            print_r($_POST);
+            // print_r($_POST);
 
             if ( empty($_POST['marca']) || empty($_POST['color']) || empty($_POST['condicion']) || empty($_POST['provincia'])){
 
@@ -54,8 +54,8 @@
                 // Este foreach monta la query con los diferentes paráemtros (WHRE, AND) en función de los parámetros
                 foreach ( $query_array as $valor ){
 
-                    echo 'count: ' .$count .'<br>';
-                    echo 'elementos: ' .$elementos .'<br>';
+                    // echo 'count: ' .$count .'<br>';
+                    // echo 'elementos: ' .$elementos .'<br>';
                     
                     if ($count == 1 ){
 
@@ -79,11 +79,12 @@
                     
                 }
 
-                echo '<pre>';
-                print_r($query_montada);
-                echo '</pre>';
-
             }
+
+
+            echo '<pre>';
+            print_r($query_montada);
+            echo '</pre>';
 
             // Ejecutamos la consulta
             $db = new Database;
@@ -140,8 +141,6 @@
                 }
             }
             ?>
-
-                
 
             </div>
 
