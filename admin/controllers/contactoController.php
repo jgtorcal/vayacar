@@ -1,5 +1,7 @@
 <?php
 
+require_once 'models/estadoModel.php';
+
 class ContactoController extends Controller {
 
     function __construct() {
@@ -41,6 +43,12 @@ class ContactoController extends Controller {
         $id_contacto = $param;
         $contacto = $this->model->getById($id_contacto);
         $this->view->contacto = $contacto;
+
+        // Añadimaos Estados
+        $estados = new EstadoModel;
+        $estados_array = $estados->getAll();
+        $this->view->estados = $estados_array;
+
         $this->view->render('contacto/edit');
 
     }

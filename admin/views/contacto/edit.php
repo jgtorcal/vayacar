@@ -44,7 +44,19 @@ require 'views/header.php';
     <div class="row-1">
         <div class="form-item">
             <label for="id_estado">Estado</label><br>
-            <input type="text" id="id_estado" name="id_estado" value="<?php echo $this->contacto->id_estado; ?>"><br>
+
+            <select id="id_estado" name="id_estado" required>
+                <?php
+                $selected = $this->contacto->id_estado;
+                foreach($this->estados as $row){
+                    ?>
+                    <option value="<?php echo $row->id_estado; ?>" <?php if($selected == $row->id_estado){echo 'selected';} ?>><?php echo $row->nombre; ?></option>
+                    <?php
+                }
+                ?>
+            </select><br>
+
+
         </div>
     </div>
 
