@@ -6,11 +6,11 @@
 	<!-- SPLIDE -->
 	<link rel="stylesheet" href="vendor/splide/dist/css/splide.min.css">
 	<!-- RESET -->
-	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="<?php echo $front_url; ?>/css/reset.css">
 	<!-- BURGER -->
-	<link rel="stylesheet" href="css/burger.css">	
+	<link rel="stylesheet" href="<?php echo $front_url; ?>/css/burger.css">	
 	<!-- CUSTOM -->
-	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="<?php echo $front_url; ?>/css/style.css">
 	<!-- FONT AWESOME -->
 	<script src="https://kit.fontawesome.com/1518e5c220.js" crossorigin="anonymous"></script>
 
@@ -30,16 +30,16 @@
 				<div id="header_container_box">
 					<!-- LOGO -->
 					<div id="logo_box">
-						<a href="index.php"><img src="img/logo.png"></a>
+						<a href="<?php echo $front_url; ?>"><img src="<?php echo $front_url; ?>/img/logo.png"></a>
 					</div>
 					<!-- NAV -->
 					<nav id="nav_container">
 						<div id="menu_box">
 							<ul id="menu">
-								<li><a class="active" href="index.php">Inicio</a></li>
-								<li><a href="coches.php">Coches</a></li>
-								<li><a href="quienes.php">Quien somos</a></li>
-								<li><a href="contacto.php">Contacto</a></li>
+								<li><a class="active" href="<?php echo $front_url; ?>">Inicio</a></li>
+								<li><a href="/coches">Coches</a></li>
+								<li><a href="/quienes-somos">Quien somos</a></li>
+								<li><a href="/contacto">Contacto</a></li>
 							</ul>
 							<div id="menu_btn">
 								<div id="burger"></div>

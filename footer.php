@@ -19,7 +19,7 @@
 					
 					<div class="footer_left">
 						<div id="logo_footer_box">
-							<img src="img/logo_negativo.png">
+							<img src="<?php echo $front_url; ?>/img/logo_negativo.png">
 							<p>Dirección postal Calle Inventada 08020 Barcelona<br><a href="#">info@vayacar.com</a></p>
 						</div>
 					</div>
@@ -30,11 +30,11 @@
 
 	</div>
 
-	<script src="vendor/splide/dist/js/splide.min.js"></script>
+	<script src="<?php echo $front_url; ?>/vendor/splide/dist/js/splide.min.js"></script>
 
 	
 
-	<script src="js/burger.js"></script>
+	<script src="<?php echo $front_url; ?>/js/burger.js"></script>
 
 </body>
 </html>

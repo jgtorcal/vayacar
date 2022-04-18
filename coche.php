@@ -1,7 +1,3 @@
-<?php
-include 'header.php';
-?>
-		
 <!-- MAIN CONTAINER -->
 <main id="main_container">
 
@@ -12,7 +8,7 @@ include 'header.php';
 
                 <div id="carimg">
 
-                    <img src="img/test/02.jpg">
+                    <img src="<?php echo $front_url; ?>/img/test/02.jpg">
 
                     
 
@@ -92,13 +88,5 @@ include 'header.php';
 
         </div>
     </section>
-
-
-    
 </main>
 <!-- / MAIN CONTAINER -->
-
-
-<?php
-include 'footer.php';
-?>

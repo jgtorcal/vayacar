@@ -1,7 +1,4 @@
-<?php
-include 'header.php';
-?>
-		
+
 <!-- MAIN CONTAINER -->
 <main id="main_container">
 	
@@ -215,7 +212,3 @@ include 'header.php';
 
 	} );
 </script>
-
-<?php
-include 'footer.php';
-?>

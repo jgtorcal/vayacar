@@ -1,7 +1,3 @@
-<?php
-include 'header.php';
-?>
-		
 <!-- MAIN CONTAINER -->
 <main id="main_container">
 
@@ -54,8 +50,3 @@ include 'header.php';
 
 </main>
 <!-- / MAIN CONTAINER -->
-
-
-<?php
-include 'footer.php';
-?>

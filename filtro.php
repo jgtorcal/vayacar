@@ -9,47 +9,44 @@
     <div id="filtro">
         <div class="container">
 
-            <form id="filtroform" method="POST" action="#" >
+            <form id="filtroform" method="POST" action="" >
 
                 <div class="form_item">
                     <div class="title">Marca</div>
                     <select id="marca" name="marca" >
-                        <option selected="selected" value="1">Ford</option>
-                        <option value="2">Kia</option>
-                        <option value="3">BMW</option>
-                        <option value="4">Citroen</option>
-                        <option value="5">Opel</option>
-                        <option value="6">Seat</option>
-                        <option value="7">Toyota</option>
+                        <option selected="selected" value="all">Todas</option>
+                        <option value="39">Kia</option>
+                        <option value="40">BMW</option>
+                        <option value="43">Citroen</option>
                     </select>
                 </div>
 
                 <div class="form_item">
                     <div class="title">Color</div>
                     <select id="color" name="color" >
-                        <option selected="selected" value="1">Blanco</option>
-                        <option value="2">Negro</option>
-                        <option value="3">Azul</option>
+                        <option selected="selected" value="all">Todos</option>
+                        <option value="1">Negro</option>
+                        <option value="48">Azul</option>
                     </select>
                 </div>
 
                 <div class="form_item">
                     <div class="title">Condición</div>
                     <select id="condicion" name="condicion" >
-                        <option selected="selected" value="1">Seminuevo</option>
-                        <option value="2">Km0</option>
-                        <option value="3">Bueno</option>
-                        <option value="4">Averiado</option>
+                        <option selected="selected" value="all">Todas</option>
+                        <option value="1">Kmall</option>
+                        <option value="2">Bueno</option>
                     </select>
                 </div>
 
                 <div class="form_item">
                     <div class="title">Provincia</div>
                     <select id="provincia" name="provincia" >
-                        <option selected="selected" value="1">Catalunya</option>
-                        <option value="2">Valencia</option>
-                        <option value="3">Aragón</option>
-                        <option value="4">Madrid</option>
+                        <option selected="selected" value="all">Todas</option>
+                        <option value="1">Valencia</option>
+                        <option value="2">Aragón</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
                     </select>
                 </div>
 
