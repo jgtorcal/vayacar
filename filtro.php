@@ -2,10 +2,10 @@
 // Consultas
 $db = new Database;
 
-// Extraemos las marcas
+// Extraemos las marcas utilizadas
 $marcas = [];
 try{
-    $query = $db->connect()->query('SELECT * FROM marcas');
+    $query = $db->connect()->query('SELECT DISTINCT marcas.id_marca, marcas.nombre FROM marcas INNER JOIN coches ON marcas.id_marca = coches.id_marca');
 
     while($row = $query->fetch()){
         array_push($marcas, $row);
@@ -13,10 +13,10 @@ try{
 } catch(PDOException $e){
 }
 
-// Extraemos los colores
+// Extraemos los colores utilizados
 $colores = [];
 try{
-    $query = $db->connect()->query('SELECT * FROM colores');
+    $query = $db->connect()->query('SELECT DISTINCT colores.id_color, colores.color FROM colores INNER JOIN coches ON colores.id_color = coches.id_color');
 
     while($row = $query->fetch()){
         array_push($colores, $row);
@@ -24,10 +24,10 @@ try{
 } catch(PDOException $e){
 }
 
-// Extraemos las condiciones
+// Extraemos las condiciones utilizadas
 $condiciones = [];
 try{
-    $query = $db->connect()->query('SELECT * FROM condiciones');
+    $query = $db->connect()->query('SELECT DISTINCT condiciones.id_condicion, condiciones.nombre FROM condiciones INNER JOIN coches ON condiciones.id_condicion = coches.id_condicion');
 
     while($row = $query->fetch()){
         array_push($condiciones, $row);
@@ -35,10 +35,10 @@ try{
 } catch(PDOException $e){
 }
 
-// Extraemos las provincias
+// Extraemos las provincias utilizadas
 $provincias = [];
 try{
-    $query = $db->connect()->query('SELECT * FROM provincias');
+    $query = $db->connect()->query('SELECT DISTINCT provincias.id_provincia, provincias.nombre FROM provincias INNER JOIN coches ON provincias.id_provincia = coches.id_provincia');
 
     while($row = $query->fetch()){
         array_push($provincias, $row);
@@ -68,9 +68,14 @@ try{
                     <select id="marca" name="marca" >
                         <option selected="selected" value="all">Todas</option>
                         <?php
+                        if (!empty($_POST['marca'])){
+                            $selected = $_POST['marca'];
+                        } else {
+                            $selected = null;
+                        }
                         foreach ($marcas as $marca){
                             ?>
-                            <option value="<?php echo $marca['id_marca']; ?>"><?php echo $marca['nombre']; ?></option>
+                            <option value="<?php echo $marca['id_marca']; ?>" <?php if($selected == $marca['id_marca']){echo 'selected';} ?>><?php echo $marca['nombre']; ?></option>
                             <?php
                         }
                         ?>
@@ -82,9 +87,14 @@ try{
                     <select id="color" name="color" >
                         <option selected="selected" value="all">Todos</option>
                         <?php
+                        if (!empty($_POST['color'])){
+                            $selected = $_POST['color'];
+                        } else {
+                            $selected = null;
+                        }
                         foreach ($colores as $color){
                             ?>
-                            <option value="<?php echo $color['id_color']; ?>"><?php echo $color['color']; ?></option>
+                            <option value="<?php echo $color['id_color']; ?>" <?php if($selected == $color['id_color']){echo 'selected';} ?>><?php echo $color['color']; ?></option>
                             <?php
                         }
                         ?>
@@ -96,9 +106,14 @@ try{
                     <select id="condicion" name="condicion" >
                         <option selected="selected" value="all">Todas</option>
                         <?php
+                        if (!empty($_POST['condicion'])){
+                            $selected = $_POST['condicion'];
+                        } else {
+                            $selected = null;
+                        }
                         foreach ($condiciones as $condicion){
                             ?>
-                            <option value="<?php echo $condicion['id_condicion']; ?>"><?php echo $condicion['nombre']; ?></option>
+                            <option value="<?php echo $condicion['id_condicion']; ?>" <?php if($selected == $condicion['id_condicion']){echo 'selected';} ?>><?php echo $condicion['nombre']; ?></option>
                             <?php
                         }
                         ?>
@@ -110,9 +125,14 @@ try{
                     <select id="provincia" name="provincia" >
                         <option selected="selected" value="all">Todas</option>
                         <?php
+                        if (!empty($_POST['provincia'])){
+                            $selected = $_POST['provincia'];
+                        } else {
+                            $selected = null;
+                        }
                         foreach ($provincias as $provincia){
                             ?>
-                            <option value="<?php echo $provincia['id_provincia']; ?>"><?php echo $provincia['nombre']; ?></option>
+                            <option value="<?php echo $provincia['id_provincia']; ?>" <?php if($selected == $provincia['id_provincia']){echo 'selected';} ?>><?php echo $provincia['nombre']; ?></option>
                             <?php
                         }
                         ?>

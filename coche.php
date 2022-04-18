@@ -14,7 +14,7 @@
 
                     <div id="cardetails">
 
-                        <div id="cartitle"><h1>Mazda MX3</h1></div>
+                        <div id="cartitle"><h1>Mazda MX3 <?php echo 'ID coche' . $id_coche; ?></h1></div>
 
                         <div id="cardestacado">
                             <div class="cardesitem">KM-0</div>

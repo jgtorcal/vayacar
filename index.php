@@ -1,7 +1,9 @@
 <?php
+// Config del front
 require_once 'config.php';
-
+// Config del back
 require_once 'admin/config/config.php';
+// Clase Database
 require_once 'admin/libs/database.php';
 
 require_once 'header.php';

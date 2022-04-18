@@ -82,9 +82,9 @@
             }
 
 
-            echo '<pre>';
-            print_r($query_montada);
-            echo '</pre>';
+            // echo '<pre>';
+            // print_r($query_montada);
+            // echo '</pre>';
 
             // Ejecutamos la consulta
             $db = new Database;
