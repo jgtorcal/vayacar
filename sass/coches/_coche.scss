@@ -140,6 +140,13 @@ section#car {
                     }
                 }
 
+                #mensaje_result {
+                    display: none;
+                    background-color: $gris_fondo;
+                    padding: 20px;
+                    border: 1px solid $green;
+                }
+
             }
 
         }

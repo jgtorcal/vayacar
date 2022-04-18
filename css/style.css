@@ -349,6 +349,11 @@ section#car {
           margin: 10px 0px; }
           section#car #carbox #cartext #carformbox #carform .btn:hover {
             background-color: #31363b; }
+      section#car #carbox #cartext #carformbox #mensaje_result {
+        display: none;
+        background-color: #F3F3F3;
+        padding: 20px;
+        border: 1px solid #219ebc; }
 
 #filtrobtn {
   font-size: 1rem; }
