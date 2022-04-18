@@ -84,6 +84,15 @@ class ContactoModel extends Model {
                 $item->id_estado = $row['id_estado'];
                 $item->id_coche = $row['id_coche'];
 
+                // Marca y modelo
+                $coche_query = new CocheModel;
+                $coche = $coche_query->getById($item->id_coche);
+                $marca_query = new MarcaModel;
+                $marca = $marca_query->getById($coche->id_marca);
+
+                $item->marca_name = $marca->nombre;
+                $item->modelo = $coche->modelo;
+
             }
 
             return $item;

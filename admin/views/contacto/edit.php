@@ -4,7 +4,12 @@ require 'views/header.php';
 
 <h2>Editar contacto</h2>
 
+<div class="cocherel">
+    <a href="<?php echo constant('APPURL') . 'coches/edit/' . $this->contacto->id_coche; ?>">Ver: <?php echo $this->contacto->marca_name; ?> <?php echo $this->contacto->modelo; ?></a>
+</div>
+
 <form action="<?php echo constant('APPURL'); ?>contactos/update" method="POST" class="form" id="form_contacto">
+    
 
     <div class="row-1">
         <div class="form-item">

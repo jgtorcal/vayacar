@@ -91,6 +91,14 @@ i {
 
 #main_container {
   /* TABLAS */ }
+  #main_container .cocherel {
+    padding: 20px 0px; }
+    #main_container .cocherel a {
+      text-decoration: none;
+      background-color: #219ebc;
+      padding: 5px 10px;
+      border-radius: 5px;
+      color: #FFFFFF; }
   #main_container .restable {
     overflow-x: auto;
     width: 100%; }
