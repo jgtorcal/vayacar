@@ -1,7 +1,7 @@
 <?php
 
-define('FRONTURL', 'http://localhost/vayamec/');
-define('FOLDER_NAME', 'vayamec');
+define('FRONTURL', 'http://www.jordiwp.com/vayacul/');
+define('FOLDER_NAME', 'vayacul');
 
 /* CONSTANTES APP */
 define('PROJECT_FOLDER', $_SERVER['DOCUMENT_ROOT'].FOLDER_NAME.'/');
@@ -13,10 +13,10 @@ define('PUBLIC_UPLOADS_URL', APPURL.'views/public/uploads/logos/');// Carpeta p�
 define('PUBLIC_UPLOADS_COCHES_URL', APPURL.'views/public/uploads/coches/');// Carpeta pública donde están las imágenes de los coches para las vistas
 
 /* CONSTANTES DB */
-define('DB_NAME', 'vayamec');
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_NAME', 'vayacar');
+define('DB_HOST', 'departamentodeinternet.com');
+define('DB_USER', 'vayacaruser');
+define('DB_PASS', 'zGve18%1');
 define('DB_CHARSET', 'utf8mb4');
 
 ?>
