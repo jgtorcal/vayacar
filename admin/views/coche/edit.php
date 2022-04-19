@@ -109,7 +109,7 @@ require 'views/header.php';
 
         <div class="form-item">
             <label for="nombre">Foto actual</label><br>
-            <img src="<?php echo constant('UPLOADS_COCHES_URL') . $this->coche->foto; ?>"><br>
+            <img src="<?php echo constant('PUBLIC_UPLOADS_COCHES_URL') . $this->coche->foto; ?>"><br>
         </div><br>
 
         <div class="form-item">

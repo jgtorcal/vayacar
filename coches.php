@@ -129,7 +129,7 @@
                     <div class="carlist_item">
                         <a href="<?php echo constant('FRONTURL'); ?>coche/<?php echo $item['id_coche'];?>">
                             <div class="carlist_item_img">
-                                <img src="<?php echo constant('UPLOADS_COCHES_URL'); ?><?php echo $item['foto'] ?>">
+                                <img src="<?php echo constant('PUBLIC_UPLOADS_COCHES_URL'); ?><?php echo $item['foto'] ?>">
                             </div>
                             <div class="carlist_item_box">
                                 <div class="carlist_item_box_title"><?php echo $items_marca[0]['nombre'] ;?> <?php echo $item['modelo'];?></div>
