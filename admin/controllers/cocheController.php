@@ -82,13 +82,12 @@ class CocheController extends Controller{
                     $ext = $extarr[sizeof($extarr)-1];
                     $hash = md5(Date('Ymdgi') . $filename) . '.' . $ext;
                     //$target_file = $target_dir . $hash;
-                    $target_file = $_SERVER['DOCUMENT_ROOT'] . $target_dir . $hash;
+                    //$target_file = $_SERVER['DOCUMENT_ROOT'] . $target_dir . $hash;
+                    $target_file = UPLOADS_COCHES_URL . $hash;
                     $uploadOk = 1;
                     $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
                     
                     $check = getimagesize($file["foto"]["tmp_name"]);
-
-                    //echo '<pre>'; print_r($target_file); echo '</pre>';
 
                     if($check !== false) {
                         $uploadOk = 1;
