@@ -9,7 +9,7 @@ Repositorio del Proyecto final DAW
 
 3. Editar el archivo config.php del directorio /admin/config de la siguiente forma según el nombre de la carpeta
 
-´´´
+```
 define('PROJECT_FOLDER', 'vayacar');
 define('FRONTURL', 'http://localhost/vayacar/');
 ```
