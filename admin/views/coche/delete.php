@@ -2,7 +2,7 @@
 require 'views/header.php';
 ?>
 
-<h2>Eliminar marca</h2>
+<h2>Eliminar coche</h2>
 
 <div class="mensaje"><?php echo $this->mensaje; ?></div>
 
