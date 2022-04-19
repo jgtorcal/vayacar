@@ -1,6 +1,6 @@
 <?php
 
-define('FRONTURL', 'https://vayacar.local.code/');
+define('FRONTURL', 'http://localhost/vayamec/');
 
 /* CONSTANTES APP */
 define('APPURL', FRONTURL .'admin/');
@@ -15,10 +15,10 @@ define('UPLOADS_COCHES_URL', '/admin/views/public/uploads/coches/');// Carpeta p
 
 
 /* CONSTANTES DB */
-define('DB_NAME', 'vayacar');
-define('DB_HOST', 'departamentodeinternet.com');
-define('DB_USER', 'vayacaruser');
-define('DB_PASS', 'zGve18%1');
+define('DB_NAME', 'vayamec');
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
 
 ?>

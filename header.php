@@ -37,9 +37,9 @@
 						<div id="menu_box">
 							<ul id="menu">
 								<li><a class="active" href="<?php echo constant('FRONTURL'); ?>">Inicio</a></li>
-								<li><a href="/coches">Coches</a></li>
-								<li><a href="/quienes-somos">Quien somos</a></li>
-								<li><a href="/contacto">Contacto</a></li>
+								<li><a href="<?php echo constant('FRONTURL'); ?>/coches">Coches</a></li>
+								<li><a href="<?php echo constant('FRONTURL'); ?>/quienes-somos">Quien somos</a></li>
+								<li><a href="<?php echo constant('FRONTURL'); ?>/contacto">Contacto</a></li>
 							</ul>
 							<div id="menu_btn">
 								<div id="burger"></div>
