@@ -1,5 +1,7 @@
 <?php
 
+require_once 'models/rolmodel.php';
+require_once 'libs/classes/usuario.php';
 class UsuarioModel extends Model {
 
     public function __construct(){
@@ -19,13 +21,17 @@ class UsuarioModel extends Model {
 
             while($row = $query->fetch()){
 
-                $item = new UsuarioController();
+                $item = new Usuario();
 
                 $item->id_usuario = $row['id_usuario'];
                 $item->nombre = $row['nombre'];
                 $item->email    = $row['email'];
                 $item->password  = $row['password'];
                 $item->id_rol  = $row['id_rol'];
+
+                $rol = new RolModel;
+                $rol_array = $rol->getById($item->id_rol);
+                $item->rol_name  = $rol_array->nombre;
 
                 array_push($items, $item);
             }
@@ -55,8 +61,8 @@ class UsuarioModel extends Model {
 
             while($row = $query->fetch()){
 
-                require_once 'controllers/usuarioController.php';
-                $item = new UsuarioController();
+                //require_once 'controllers/usuarioController.php';
+                $item = new Usuario();
 
                 $item->id_usuario = $row['id_usuario'];
                 $item->nombre = $row['nombre'];
@@ -78,8 +84,8 @@ class UsuarioModel extends Model {
 
     public function getById($id_usuario) {
 
-        // Recuperar color
-        $item = new UsuarioController();
+        // Recuperar usuario
+        $item = new Usuario();
 
         $query = $this->db->connect()->prepare("SELECT * FROM usuarios WHERE id_usuario = :id_usuario");
 

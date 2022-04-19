@@ -20,8 +20,7 @@ require 'views/header.php';
             include_once 'models/marcamodel.php';
 
             foreach($this->marcas as $row){
-
-                $marca = new MarcaController();
+                
                 $marca = $row; 
 
                 ?>

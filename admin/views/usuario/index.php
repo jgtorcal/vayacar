@@ -28,7 +28,7 @@ require 'views/header.php';
                     <td><?php echo $usuario->nombre; ?></td>
                     <td><?php echo $usuario->email; ?></td>
                     <td><?php echo $usuario->password; ?></td>
-                    <td><?php echo $usuario->id_rol; ?></td>
+                    <td><?php echo $usuario->rol_name; ?></td>
                     <td class="actions">
                         <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'usuarios/edit/' . $usuario->id_usuario; ?>"><i class="fa-solid fa-square-pen btn-edit"></i></a></div>
                         <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'usuarios/delete/' . $usuario->id_usuario; ?>" onclick="return confirm('¿Estás seguro de querer eliminar este usuario?');"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>

@@ -12,7 +12,7 @@ class MarcaController extends Controller{
         
     }
 
-    // Listar todos los colores
+    // Listar todo
     public function index($mensaje = null){
 
         $marcas = $this->model->getAll();

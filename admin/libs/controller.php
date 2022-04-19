@@ -9,8 +9,6 @@ class Controller {
         $this->view = new View();
         $this->view->nombre = $this->getUserEmail();
         $this->view->rol = $this->getRol();
-
-        //echo "ejecutado el construct de Controller<br>";
         
     }
 
@@ -27,8 +25,6 @@ class Controller {
             $this->model = new $modelName();
             
         }
-
-        //echo "ejecutado el loadModel de Controller<br>";
 
     }
 
@@ -70,8 +66,6 @@ class Controller {
 
     // Checkea la autorización
     public function checkAuth($login, $su){
-
-        //print_r($_SESSION);
 
         $sesion_activa = $this->checkSesion();
 

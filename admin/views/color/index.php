@@ -19,8 +19,7 @@ require 'views/header.php';
             include_once 'models/colormodel.php';
 
             foreach($this->colores as $row){
-
-                $color = new ColorController();
+                
                 $color = $row; 
 
                 ?>

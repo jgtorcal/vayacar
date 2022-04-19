@@ -40,6 +40,34 @@ class RolModel extends Model {
 
     }
 
+
+
+    public function getById($id_rol) {
+
+        // Recuperar rol
+        $item = new Rol();
+
+        $query = $this->db->connect()->prepare("SELECT * FROM roles WHERE id_rol = :id_rol");
+
+        try{
+
+            $query->execute(['id_rol' => $id_rol]);
+
+            while($row = $query->fetch()){
+                $item->id_rol = $row['id_rol'];
+                $item->nombre = $row['nombre'];
+            }
+
+            return $item;
+
+        }catch(PDOException $e){
+
+            return null;
+
+        }
+
+    }
+
 }
 
 ?>
