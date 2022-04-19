@@ -57,7 +57,7 @@
 
                 <div id="carimg">
 
-                    <img src="<?php echo constant('UPLOADSURL_COCHES'); ?><?php echo $coche[0]['foto'] ?>">
+                    <img src="<?php echo constant('UPLOADS_COCHES_URL'); ?><?php echo $coche[0]['foto'] ?>">
 
                     <div id="cardetails">
 
