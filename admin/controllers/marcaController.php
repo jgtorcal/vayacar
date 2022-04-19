@@ -67,7 +67,7 @@ class MarcaController extends Controller{
                 
                 if(in_array($fileType, $allowTypes)){ 
 
-                    $target_dir = constant('UPLOADSURL');
+                    $target_dir = constant('UPLOADS_URL');
                     $extarr = explode('.',$file["logo"]["name"]);
 
                     $filename = $extarr[sizeof($extarr)-2];

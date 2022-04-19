@@ -37,7 +37,7 @@ require 'views/header.php';
 
                     <td><?php echo $coche->id_coche; ?></td>
                     <td><?php echo $coche->referencia; ?></td>
-                    <td><img src="<?php echo constant('UPLOADSURL_PUBLIC_COCHES') . $coche->foto; ?>" width="50px"></td>
+                    <td><img src="<?php echo constant('UPLOADS_COCHES_URL') . $coche->foto; ?>" width="50px"></td>
                     <td><?php echo $coche->marca_name; ?></td>
                     <td><?php echo $coche->modelo; ?></td>
                     <td><?php echo $coche->puertas; ?></td>

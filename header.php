@@ -4,13 +4,13 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- SPLIDE -->
-	<link rel="stylesheet" href="vendor/splide/dist/css/splide.min.css">
+	<link rel="stylesheet" href="<?php echo constant('FRONTURL'); ?>vendor/splide/dist/css/splide.min.css">
 	<!-- RESET -->
-	<link rel="stylesheet" href="<?php echo $front_url; ?>/css/reset.css">
+	<link rel="stylesheet" href="<?php echo constant('FRONTURL'); ?>css/reset.css">
 	<!-- BURGER -->
-	<link rel="stylesheet" href="<?php echo $front_url; ?>/css/burger.css">	
+	<link rel="stylesheet" href="<?php echo constant('FRONTURL'); ?>/css/burger.css">	
 	<!-- CUSTOM -->
-	<link rel="stylesheet" href="<?php echo $front_url; ?>/css/style.css">
+	<link rel="stylesheet" href="<?php echo constant('FRONTURL'); ?>/css/style.css">
 	<!-- FONT AWESOME -->
 	<script src="https://kit.fontawesome.com/1518e5c220.js" crossorigin="anonymous"></script>
 
@@ -30,13 +30,13 @@
 				<div id="header_container_box">
 					<!-- LOGO -->
 					<div id="logo_box">
-						<a href="<?php echo $front_url; ?>"><img src="<?php echo $front_url; ?>/img/logo.png"></a>
+						<a href="<?php echo constant('FRONTURL'); ?>"><img src="<?php echo constant('FRONTURL'); ?>img/logo.png"></a>
 					</div>
 					<!-- NAV -->
 					<nav id="nav_container">
 						<div id="menu_box">
 							<ul id="menu">
-								<li><a class="active" href="<?php echo $front_url; ?>">Inicio</a></li>
+								<li><a class="active" href="<?php echo constant('FRONTURL'); ?>">Inicio</a></li>
 								<li><a href="/coches">Coches</a></li>
 								<li><a href="/quienes-somos">Quien somos</a></li>
 								<li><a href="/contacto">Contacto</a></li>

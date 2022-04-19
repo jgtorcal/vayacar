@@ -75,10 +75,8 @@ class CocheController extends Controller{
                 
                 if(in_array($fileType, $allowTypes)){ 
 
-                    $target_dir = constant('UPLOADSURL_COCHES');
+                    $target_dir = constant('UPLOADS_COCHES_URL');
                     $extarr = explode('.',$file["foto"]["name"]);
-
-                    
 
                     $filename = $extarr[sizeof($extarr)-2];
                     $ext = $extarr[sizeof($extarr)-1];

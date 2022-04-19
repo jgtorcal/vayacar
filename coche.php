@@ -57,7 +57,7 @@
 
                 <div id="carimg">
 
-                    <img src="<?php echo $fotocochesurl; ?><?php echo $coche[0]['foto'] ?>">
+                    <img src="<?php echo constant('UPLOADSURL_COCHES'); ?><?php echo $coche[0]['foto'] ?>">
 
                     <div id="cardetails">
 
@@ -131,7 +131,7 @@
                             var form = document.getElementById("carform");
                             var data = new FormData(form);
 
-                            fetch("../ajaxform.php", { method:"POST", body:data })
+                            fetch("<?php echo constant('FRONTURL'); ?>ajaxform.php", { method:"POST", body:data })
                             .then(res => res.text())
                             .then((results) => { 
                                 console.log(results); 

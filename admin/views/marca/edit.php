@@ -23,7 +23,7 @@ require 'views/header.php';
     <div class="row-1">
         <div class="form-item">
             <label for="nombre">Logo</label><br>
-            <img src="<?php echo constant('UPLOADSURL_PUBLIC') . $this->marca->logo; ?>"><br>
+            <img src="<?php echo constant('UPLOADS_URL') . $this->marca->logo; ?>"><br>
         </div>
     </div>
 
