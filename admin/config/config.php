@@ -1,7 +1,8 @@
 <?php
 
-define('FRONTURL', 'http://localhost/vayacar/');
-define('FOLDER_NAME', 'vayacar');
+// CONST
+define('FRONTURL', 'http://www.vayacar.site/');
+define('FOLDER_NAME', '');
 
 /* CONSTANTES APP */
 define('PROJECT_FOLDER', $_SERVER['DOCUMENT_ROOT'].'/'.FOLDER_NAME.'/');
@@ -13,10 +14,10 @@ define('PUBLIC_UPLOADS_URL', APPURL.'views/public/uploads/logos/');// Carpeta p�
 define('PUBLIC_UPLOADS_COCHES_URL', APPURL.'views/public/uploads/coches/');// Carpeta pública donde están las imágenes de los coches para las vistas
 
 /* CONSTANTES DB */
-define('DB_NAME', 'vayacar');
-define('DB_HOST', 'localhost');
-define('DB_USER', 'root');
-define('DB_PASS', '');
+define('DB_NAME', 'admin_vayacar');
+define('DB_HOST', '91.142.210.33');
+define('DB_USER', 'vayauserdb');
+define('DB_PASS', 'u4qX%1k2');
 define('DB_CHARSET', 'utf8mb4');
 
 ?>
