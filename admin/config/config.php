@@ -14,9 +14,9 @@ define('PUBLIC_UPLOADS_COCHES_URL', APPURL.'views/public/uploads/coches/');// Ca
 
 /* CONSTANTES DB */
 define('DB_NAME', 'vayacar');
-define('DB_HOST', 'departamentodeinternet.com');
-define('DB_USER', 'vayacaruser');
-define('DB_PASS', 'zGve18%1');
+define('DB_HOST', 'localhost');
+define('DB_USER', 'root');
+define('DB_PASS', '');
 define('DB_CHARSET', 'utf8mb4');
 
 ?>
