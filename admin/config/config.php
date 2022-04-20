@@ -1,7 +1,17 @@
 <?php
 
-// CONST
+// URL general de la aplicación
 define('FRONTURL', 'http://www.vayacar.site/');
+
+/*
+Si estás desplegando en una carpeta en localhost (por ejemplo localhost/vayacar) especifica aquí la carpeta:
+define('FOLDER_NAME', 'vayacar');
+
+En caso contrario (por ejemplo vayacar.site) déjalo vacío:
+define('FOLDER_NAME', '');
+*/
+
+// 
 define('FOLDER_NAME', '');
 
 /* CONSTANTES APP */
