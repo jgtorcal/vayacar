@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/rolModel.php';
+require_once 'models/rolmodel.php';
 class UsuarioController extends Controller {
 
     public $nombre;

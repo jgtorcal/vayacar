@@ -1,6 +1,6 @@
 <?php
 
-require_once 'models/estadoModel.php';
+require_once 'models/estadomodel.php';
 
 class ContactoController extends Controller {
 

@@ -1,9 +1,9 @@
 <?php
 
-require_once 'models/marcaModel.php';
-require_once 'models/colorModel.php';
-require_once 'models/provinciaModel.php';
-require_once 'models/condicionModel.php';
+require_once 'models/marcamodel.php';
+require_once 'models/colormodel.php';
+require_once 'models/provinciamodel.php';
+require_once 'models/condicionmodel.php';
 
 class CocheController extends Controller{
 

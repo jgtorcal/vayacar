@@ -1,10 +1,10 @@
 <?php
 
-define('FRONTURL', 'http://www.jordiwp.com/vayacul/');
-define('FOLDER_NAME', 'vayacul');
+define('FRONTURL', 'http://localhost/vayacar/');
+define('FOLDER_NAME', 'vayacar');
 
 /* CONSTANTES APP */
-define('PROJECT_FOLDER', $_SERVER['DOCUMENT_ROOT'].FOLDER_NAME.'/');
+define('PROJECT_FOLDER', $_SERVER['DOCUMENT_ROOT'].'/'.FOLDER_NAME.'/');
 define('APPURL', FRONTURL .'admin/');
 define('PUBLICURL', APPURL . 'views/public/');// Carpeta donde están los CSS para el layout
 define('UPLOADS_URL', PROJECT_FOLDER.'admin/views/public/uploads/logos/');// Carpeta para subir los logos
