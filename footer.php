@@ -10,17 +10,17 @@
 
 					<div class="footer_right">
 						<ul id="menufooter">
-							<li><a class="active" href="index.php">Inicio</a></li>
-							<li><a href="coches.php">Coches</a></li>
-							<li><a href="quienes.php">Quien somos</a></li>
-							<li><a href="contacto.php">Contacto</a></li>
+							<li><a <?php if($active == "main"){ echo 'class="active"'; } ?> href="<?php echo constant('FRONTURL'); ?>">Inicio</a></li>
+							<li><a <?php if($active == "coches" || $active == "coche"){ echo 'class="active"'; } ?> href="<?php echo constant('FRONTURL'); ?>coches">Coches</a></li>
+							<li><a <?php if($active == "quienes"){ echo 'class="active"'; } ?> href="<?php echo constant('FRONTURL'); ?>quienes-somos">Quien somos</a></li>
+							<li><a <?php if($active == "contacto"){ echo 'class="active"'; } ?> href="<?php echo constant('FRONTURL'); ?>contacto">Contacto</a></li>
 						</ul>
 					</div>
 					
 					<div class="footer_left">
 						<div id="logo_footer_box">
 							<img src="<?php echo constant('FRONTURL'); ?>img/logo_negativo.png">
-							<p>Dirección postal Calle Inventada 08020 Barcelona<br><a href="#">info@vayacar.com</a></p>
+							<p><?php echo $content['direccion']; ?><br><a href="mailto:<?php echo $content['email']; ?>"><?php echo $content['email']; ?></a></p>
 						</div>
 					</div>
 				</div>
@@ -31,9 +31,6 @@
 	</div>
 
 	<script src="<?php echo constant('FRONTURL'); ?>vendor/splide/dist/js/splide.min.js"></script>
-
-	
-
 	<script src="<?php echo constant('FRONTURL'); ?>js/burger.js"></script>
 
 </body>

@@ -232,24 +232,25 @@ section#carlist {
     grid-template-rows: 1fr;
     gap: 40px 20px;
     grid-template-areas: ". ."; }
-    section#carlist #carlistbox .carlist_item a {
-      text-decoration: none;
-      color: #31363b; }
-      section#carlist #carlistbox .carlist_item a img {
-        object-fit: cover;
-        max-height: 300px;
-        width: 100%; }
-      section#carlist #carlistbox .carlist_item a .carlist_item_box {
-        padding: 15px 0;
-        text-align: center;
-        background: #219ebc;
-        transition: background .3s linear;
-        color: #FFFFFF; }
-        section#carlist #carlistbox .carlist_item a .carlist_item_box .carlist_item_box_title {
-          font-weight: 500; }
-      section#carlist #carlistbox .carlist_item a:hover .carlist_item_box {
-        background: #31363b;
-        transition: background .3s linear; }
+    section#carlist #carlistbox .carlist_item {
+      background: #219ebc; }
+      section#carlist #carlistbox .carlist_item a {
+        text-decoration: none;
+        color: #31363b; }
+        section#carlist #carlistbox .carlist_item a img {
+          object-fit: cover;
+          max-height: 300px;
+          width: 100%; }
+        section#carlist #carlistbox .carlist_item a .carlist_item_box {
+          padding: 15px 0;
+          text-align: center;
+          transition: background .3s linear;
+          color: #FFFFFF; }
+          section#carlist #carlistbox .carlist_item a .carlist_item_box .carlist_item_box_title {
+            font-weight: 500; }
+        section#carlist #carlistbox .carlist_item a:hover .carlist_item_box {
+          background: #31363b;
+          transition: background .3s linear; }
   @media only screen and (min-width: 768px) {
     section#carlist #carlistbox {
       grid-template-columns: 1fr 1fr 1fr;

@@ -34,14 +34,50 @@
 
 	</section>
 
+
+
 	<section id="slider_services">
 		
 		<div class="container">
+
+
+
+			<?php
+			$db = new Database;
+			$items = [];
+
+			$query_home = 'SELECT * FROM coches ORDER BY "id" DESC';
+			try{
+
+				$query = $db->connect()->query($query_home);
+				while($row = $query->fetch()){
+					array_push($items, $row);
+				}
+
+			} catch(PDOException $e){
+				echo $e;
+			}
+
+			echo '<pre>';
+			print_r($items);
+			echo '</pre>';
+			?>
+
+
+
+
+
+
+
+
+
 			<h2>Últimos vehículos</h2>
 			<div id="service_slider" class="splide">
 		
 				<div class="splide__track">
 					<ul class="splide__list">
+
+					
 						
 						<li class="splide__slide">
 							<a href="#">

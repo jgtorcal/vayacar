@@ -10,13 +10,11 @@
 
             <div id="quienes_content">
 
-                <h1>Texto de prueba</h1>
-                <h2>Esto es el subtítulo de prueba</h2>
+                <h1>VayaCar</h1>
+                <h2>Coches de ocasión</h2>
 
                 <div class="quienes_text">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo iure laboriosam voluptate, quas neque perferendis id repellat nobis doloribus nemo, tenetur, voluptatum deleniti? Nam quisquam magni officia nobis, maxime perspiciatis?</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo iure laboriosam voluptate, quas neque perferendis id repellat nobis doloribus nemo, tenetur, voluptatum deleniti? Nam quisquam magni officia nobis, maxime perspiciatis?</p>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Explicabo iure laboriosam voluptate, quas neque perferendis id repellat nobis doloribus nemo, tenetur, voluptatum deleniti? Nam quisquam magni officia nobis, maxime perspiciatis?</p>
+                    <?php echo html_entity_decode(htmlspecialchars_decode($content['quienes_somos'])); ?>
                 </div>
 
             </div>

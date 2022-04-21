@@ -81,12 +81,6 @@
 
             }
 
-
-            // echo '<pre>';
-            // print_r($query_montada);
-            // echo '</pre>';
-
-            // Ejecutamos la consulta
             $db = new Database;
             $items = [];
 
@@ -97,18 +91,8 @@
                     array_push($items, $row);
                 }
 
-                // echo '<pre>';
-                // print_r($items);
-                // echo '</pre>';
-
             } catch(PDOException $e){
-
-                echo '<pre>';
-                print_r($e);
-                echo '</pre>';
             }
-
-            
 
             ?>
 

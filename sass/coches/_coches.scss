@@ -12,6 +12,8 @@ section#carlist {
 
         .carlist_item {
 
+            background: $green;
+
             a {
                 text-decoration: none;
                 color: $color_text;
@@ -24,7 +26,7 @@ section#carlist {
                 .carlist_item_box {
                     padding: 15px 0;
                     text-align: center;
-                    background: $green;
+                    
                     transition: background .3s linear;
                     color: #FFFFFF;
                 

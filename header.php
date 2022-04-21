@@ -36,10 +36,10 @@
 					<nav id="nav_container">
 						<div id="menu_box">
 							<ul id="menu">
-								<li><a class="active" href="<?php echo constant('FRONTURL'); ?>">Inicio</a></li>
-								<li><a href="<?php echo constant('FRONTURL'); ?>coches">Coches</a></li>
-								<li><a href="<?php echo constant('FRONTURL'); ?>quienes-somos">Quien somos</a></li>
-								<li><a href="<?php echo constant('FRONTURL'); ?>contacto">Contacto</a></li>
+								<li><a <?php if($active == "main"){ echo 'class="active"'; } ?> href="<?php echo constant('FRONTURL'); ?>">Inicio</a></li>
+								<li><a <?php if($active == "coches" || $active == "coche"){ echo 'class="active"'; } ?>href="<?php echo constant('FRONTURL'); ?>coches">Coches</a></li>
+								<li><a <?php if($active == "quienes"){ echo 'class="active"'; } ?> href="<?php echo constant('FRONTURL'); ?>quienes-somos">Quien somos</a></li>
+								<li><a <?php if($active == "contacto"){ echo 'class="active"'; } ?> href="<?php echo constant('FRONTURL'); ?>contacto">Contacto</a></li>
 							</ul>
 							<div id="menu_btn">
 								<div id="burger"></div>
