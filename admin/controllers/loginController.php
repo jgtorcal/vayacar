@@ -21,8 +21,6 @@ class LoginController extends Controller {
         if( !isset($_SESSION) || session_status() === PHP_SESSION_NONE) {
             session_start();
         }
-
-        print_r($_POST);
         
         // Comprobamos si los campos del formulario nos vienen llenos y creamos las variables de sesión
         if (isset($_POST['login']) && !empty($_POST['password']) && !empty($_POST['email'])) {
