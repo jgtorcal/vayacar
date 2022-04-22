@@ -30,7 +30,7 @@ require 'views/header.php';
     <div class="row-1">
         <div class="form-item">
             <label for="password">Password</label><br>
-            <input type="text" id="password" name="password" value="<?php echo $this->usuario->password; ?>"><br>
+            <input type="password" id="password" name="password" value="<?php echo $this->usuario->password; ?>"><br>
         </div>
     </div>
 

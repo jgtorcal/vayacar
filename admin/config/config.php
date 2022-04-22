@@ -1,7 +1,7 @@
 <?php
 
 // URL general de la aplicación
-define('FRONTURL', 'http://www.vayacar.site/');
+define('FRONTURL', 'https://www.vayacar.site/');
 
 /*
 Si estás desplegando en una carpeta en localhost (por ejemplo localhost/vayacar) especifica aquí la carpeta:

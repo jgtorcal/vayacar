@@ -111,6 +111,28 @@ class UsuarioModel extends Model {
 
     }
 
+
+    public function checkPass($email, $password) {
+
+        $query = $this->db->connect()->prepare('SELECT * FROM usuarios WHERE email = :email AND password = :password');
+
+        try{
+            $query->execute([ 
+                'email' => $email,
+                'password' => $password
+            ]);
+
+            $number_of_rows = $query->fetchColumn(); 
+            return $number_of_rows;
+
+        }catch(PDOException $e){
+
+            echo $e . '<br>';
+
+        }
+
+    }
+
     public function insertUsuario($data) {
 
         // Insertar datos nuevos

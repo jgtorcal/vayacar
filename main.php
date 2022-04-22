@@ -46,7 +46,7 @@
 			$db = new Database;
 			$items = [];
 
-			$query_home = 'SELECT * FROM coches ORDER BY "id" DESC';
+			$query_home = 'SELECT * FROM coches ORDER BY "id" DESC LIMIT 6';
 			try{
 
 				$query = $db->connect()->query($query_home);
@@ -58,17 +58,10 @@
 				echo $e;
 			}
 
-			echo '<pre>';
-			print_r($items);
-			echo '</pre>';
+			// echo '<pre>';
+			// print_r($items);
+			// echo '</pre>';
 			?>
-
-
-
-
-
-
-
 
 
 			<h2>Últimos vehículos</h2>
@@ -77,74 +70,34 @@
 				<div class="splide__track">
 					<ul class="splide__list">
 
-					
-						
-						<li class="splide__slide">
-							<a href="#">
-								<div class="splide__slide__container">
-									<img src="img/test/03.jpg">	
-								</div>
-								<div class="splide_slide_box">
-									<div class="splide_slide_box_title">BMW Serie 1</div>
-									<div class="splide_slide_box_price">12.000 €</div>
-								</div>
-							</a>
-						</li>
-						<li class="splide__slide">
-							<a href="#">
-								<div class="splide__slide__container">
-									<img src="img/test/04.jpg">	
-								</div>
-								<div class="splide_slide_box">
-									<div class="splide_slide_box_title">BMW Serie 1</div>
-									<div class="splide_slide_box_price">12.000 €</div>
-								</div>
-							</a>
-						</li>
-						<li class="splide__slide">
-							<a href="#">
-								<div class="splide__slide__container">
-									<img src="img/test/05.jpg">	
-								</div>
-								<div class="splide_slide_box">
-									<div class="splide_slide_box_title">BMW Serie 1</div>
-									<div class="splide_slide_box_price">12.000 €</div>
-								</div>
-							</a>
-						</li>
-						<li class="splide__slide">
-							<a href="#">
-								<div class="splide__slide__container">
-									<img src="img/test/06.jpg">	
-								</div>
-								<div class="splide_slide_box">
-									<div class="splide_slide_box_title">BMW Serie 1</div>
-									<div class="splide_slide_box_price">12.000 €</div>
-								</div>
-							</a>
-						</li>
-						<li class="splide__slide">
-							<a href="#">
-								<div class="splide__slide__container">
-									<img src="img/test/01.jpg">	
-								</div>
-								<div class="splide_slide_box">
-									<div class="splide_slide_box_title">BMW Serie 1</div>
-									<div class="splide_slide_box_price">12.000 €</div>
-								</div>
-							</a>
-						</li>
-						<li class="splide__slide">
-							<a href="#">
-								<div class="splide__slide__container">
-									<img src="img/test/02.jpg">	
-								</div>
-								<div class="splide_slide_box">
-									<div class="splide_slide_box_title">BMW Serie 1</div>
-									<div class="splide_slide_box_price">12.000 €</div>
-								</div>
-							</a>
-						</li>
+						<?php
+						if ($items){
+
+							foreach ($items as $item){
+
+								// Sacar el nombre de la marca
+								$items_marca = [];
+								$query_marca = $db->connect()->query("SELECT nombre FROM marcas WHERE id_marca = {$item['id_marca']}");
+								while($row = $query_marca->fetch()){
+									array_push($items_marca, $row);
+								}
+								?>
+
+								<li class="splide__slide">
+									<a href="<?php echo constant('FRONTURL'); ?>coche/<?php echo $item['id_coche'];?>">
+										<div class="splide__slide__container">
+											<img src="<?php echo constant('PUBLIC_UPLOADS_COCHES_URL'); ?><?php echo $item['foto'] ?>">	
+										</div>
+										<div class="splide_slide_box">
+											<div class="splide_slide_box_title"><?php echo $items_marca[0]['nombre'] ;?> <?php echo $item['modelo'];?></div>
+											<div class="splide_slide_box_price"><?php echo $item['precio'];?> €</div>
+										</div>
+									</a>
+								</li>
+								<?php
+							}
+						}
+						?>
 
 					</ul>
 				</div>

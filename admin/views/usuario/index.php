@@ -11,7 +11,6 @@ require 'views/header.php';
                 <th>ID</th>
                 <th>Nombre</th>
                 <th>Email</th>
-                <th>Password</th>
                 <th>Rol</th>
                 <th></th>
             </tr>
@@ -27,7 +26,6 @@ require 'views/header.php';
                     <td><?php echo $usuario->id_usuario; ?></td>
                     <td><?php echo $usuario->nombre; ?></td>
                     <td><?php echo $usuario->email; ?></td>
-                    <td><?php echo $usuario->password; ?></td>
                     <td><?php echo $usuario->rol_name; ?></td>
                     <td class="actions">
                         <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'usuarios/edit/' . $usuario->id_usuario; ?>"><i class="fa-solid fa-square-pen btn-edit"></i></a></div>

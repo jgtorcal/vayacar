@@ -9,6 +9,8 @@ class Controller {
         $this->view = new View();
         $this->view->nombre = $this->getUserEmail();
         $this->view->rol = $this->getRol();
+
+        //print_r($_SESSION);
         
     }
 
