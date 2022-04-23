@@ -38,9 +38,11 @@ switch ($url[0]){
 		$active = "main";
 		break;
 	case 'coches':
+
 		$include = 'coches.php';
 		$active = "coches";
 		break;
+
 	case 'coche':
 		$id_coche = $url[1];
 		$include = 'coche.php';

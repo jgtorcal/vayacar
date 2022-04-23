@@ -11,12 +11,18 @@
 
             <?php
 
-            // print_r($_POST);
-
             if ( empty($_POST['marca']) || empty($_POST['color']) || empty($_POST['condicion']) || empty($_POST['provincia'])){
 
                 // La consulta viene sin parámetros, mostramos todos los coches por defecto
                 $query_montada = "SELECT * FROM coches";
+
+                // SI viene del selector de marcas de la home
+                if ( $url[1] == 'marca' ) {
+
+                    $marca_url = $url[2];
+                    $query_montada = "SELECT * FROM coches WHERE id_marca = {$marca_url}";
+
+                }
 
             } else {
 

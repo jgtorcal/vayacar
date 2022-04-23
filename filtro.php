@@ -61,7 +61,7 @@ try{
     <div id="filtro">
         <div class="container">
 
-            <form id="filtroform" method="POST" action="" >
+            <form id="filtroform" method="POST" action="<?php echo constant('FRONTURL'); ?>coches" >
 
                 <div class="form_item">
                     <div class="title">Marca</div>
@@ -71,7 +71,15 @@ try{
                         if (!empty($_POST['marca'])){
                             $selected = $_POST['marca'];
                         } else {
+
                             $selected = null;
+
+                            if ( $url[1] == 'marca' ) {
+
+                                $selected = $url[2];
+                            
+                            }
+
                         }
                         foreach ($marcas as $marca){
                             ?>

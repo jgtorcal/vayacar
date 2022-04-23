@@ -40,8 +40,6 @@
 		
 		<div class="container">
 
-
-
 			<?php
 			$db = new Database;
 			$items = [];
@@ -104,57 +102,46 @@
 		
 			</div>
 			<div class="slider_btn btn">
-				<a href="#">Encuentra tu vehículo ideal</a>
+				<a href="<?php echo constant('FRONTURL'); ?>coches/">Encuentra tu vehículo ideal</a>
 			</div>
 		</div>
 	</section>
 
 	<section id="info">
 		<div class="container">
-			<h2>Nuestras Marcas</h2>
 
+			<h2>Nuestras Marcas</h2>
 
 			<div id="marcas_box">
 
-				<div class="marca_item">
-					<a href="#"><img src="img/test/logos/bmw.png"></a>
-				</div>
+				<?php
+				$db = new Database;
+				$marcas = [];
 
-				<div class="marca_item">
-					<a href="#"><img src="img/test/logos/citroen.png"></a>
-				</div>
+				$query_marcas = 'SELECT * FROM marcas';
+				try{
 
-				<div class="marca_item">
-					<a href="#"><img src="img/test/logos/dacia.png"></a>
-				</div>
+					$query = $db->connect()->query($query_marcas);
+					while($row = $query->fetch()){
+						array_push($marcas, $row);
+					}
 
-				<div class="marca_item">
-					<a href="#"><img src="img/test/logos/ford.png"></a>
-				</div>
+				} catch(PDOException $e){
+					echo $e;
+				}
+				
 
-				<div class="marca_item">
-					<a href="#"><img src="img/test/logos/kia.png"></a>
-				</div>
+				if ($marcas){
+					foreach ($marcas as $item){
 
-				<div class="marca_item">
-					<a href="#"><img src="img/test/logos/opel.png"></a>
-				</div>
-
-				<div class="marca_item">
-					<a href="#"><img src="img/test/logos/peugeot.png"></a>
-				</div>
-
-				<div class="marca_item">
-					<a href="#"><img src="img/test/logos/renault.png"></a>
-				</div>
-
-				<div class="marca_item">
-					<a href="#"><img src="img/test/logos/seat.png"></a>
-				</div>
-
-				<div class="marca_item">
-					<a href="#"><img src="img/test/logos/toyota.png"></a>
-				</div>
+						?>
+						<div class="marca_item">
+							<a href="coches/marca/<?php echo $item["id_marca"] ?>"><img src="<?php echo constant('PUBLIC_UPLOADS_URL'); ?><?php echo $item['logo'] ?>"></a>
+						</div>
+						<?php
+					}
+				}
+				?>
 				
 			</div>
 
