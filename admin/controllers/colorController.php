@@ -80,7 +80,10 @@ class ColorController extends Controller{
         }
         $this->view->mensaje = $mensaje;
         $this->view->render('color/update');
+
     }
+
+
 
     // del color
     public function delete($param = null){
