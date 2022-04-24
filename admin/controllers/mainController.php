@@ -37,8 +37,6 @@ class MainController extends Controller {
 
     }
 
-
-
 }
 
 ?>

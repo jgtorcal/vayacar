@@ -7,9 +7,14 @@ class App {
     function __construct() {
 
         // Obtenemos la URL y la parseamos
+        $url = '';
         $url = isset($_GET['url']) ? $_GET['url']: null;
-        $url = rtrim($url, '/');
-        $url = explode('/', $url);
+
+        if (!empty($url)){
+            $url = rtrim($url, '/');
+            $url = explode('/', $url);
+        }
+        
 
         // Llamamos al controlador (PRIMERA POSICION DE lA URL)
         if(empty($url[0])) {
@@ -19,6 +24,10 @@ class App {
             $su = 0;
 
         } else {
+
+            $controller_name = 'main';
+            $login = 1;
+            $su=1;
 
             switch ($url[0]) {
                 case 'main':

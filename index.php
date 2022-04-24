@@ -31,6 +31,7 @@ $url = explode('/', $url);
 //print_r($url);
 
 
+$include ="main.php";
 
 switch ($url[0]){
 	case '':
