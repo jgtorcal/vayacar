@@ -97,13 +97,13 @@ class App {
         }
 
 
+        // Definimos el controlador o mostramos error
         if (isset($controller_name)){
             $archivoController = 'controllers/' . $controller_name . 'Controller.php';
         } else {
             $controller = new ErrorController();
             $controller->MuestraError('No existe la ruta especificada');
         }
-
 
         // Si existe el controlador, lo llamamos y utilizamos el método que corresponda
         // Si no existe llamamos al controlador de errores
@@ -116,20 +116,16 @@ class App {
             $controller->loadModel($controller_name);
             $controller->checkSesion();
             $controller->checkAuth($login, $su);
-            
 
-            // Si hay método
+            // Si hay método lo seteamos, si no definimos el index
             if (isset($url[1])){
-
                 $method_name = $url[1];
-
             } else {
-
                 $method_name = 'index';
             }
 
+            // Si el método está definido, llamamos al método del controlador correspondiente.
             if (method_exists($clase, $method_name)) {
-
 
                 if (isset($url[2])){
                     $controller->{$method_name}($url[2]);
@@ -138,10 +134,8 @@ class App {
                 }
 
             } else {
-
                 $controller = new ErrorController();
                 $controller->MuestraError('No existe el método ' . $method_name);
-
             }
             
 

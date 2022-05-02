@@ -59,9 +59,6 @@
 
                 // Este foreach monta la query con los diferentes paráemtros (WHRE, AND) en función de los parámetros
                 foreach ( $query_array as $valor ){
-
-                    // echo 'count: ' .$count .'<br>';
-                    // echo 'elementos: ' .$elementos .'<br>';
                     
                     if ($count == 1 ){
 

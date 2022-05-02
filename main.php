@@ -136,7 +136,9 @@
 
 						?>
 						<div class="marca_item">
-							<a href="coches/marca/<?php echo $item["id_marca"] ?>"><img src="<?php echo constant('PUBLIC_UPLOADS_URL'); ?><?php echo $item['logo'] ?>"></a>
+							<a href="coches/marca/<?php echo $item["id_marca"] ?>">
+								<img src="<?php echo constant('PUBLIC_UPLOADS_URL'); ?><?php echo $item['logo'] ?>">
+							</a>
 						</div>
 						<?php
 					}
@@ -153,7 +155,6 @@
 <script>
 	document.addEventListener( 'DOMContentLoaded', function () {
 
-
 	/* Slider general */
 	var splide_image = new Splide( '#image_slider', {
 		type   : 'loop',
@@ -162,8 +163,6 @@
 	} );
 
 	splide_image.mount();
-
-
 
 	/* Slider servicios */
 	var splide_service = new Splide( '#service_slider', {
