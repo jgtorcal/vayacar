@@ -1,4 +1,3 @@
 # ignore all logs
 *.log
-admin/views/public/uploads/
 .vscode/
