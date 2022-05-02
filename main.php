@@ -7,7 +7,7 @@
 			<div id="image_slider" class="splide">
 				<div class="splide__track">
 					<ul class="splide__list">
-						<li class="splide__slide" style="background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.4)), url('img/slide01.png'); background-size: cover;">
+						<li class="splide__slide" style="background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.4)), url('<?php echo constant('FRONTURL'); ?>img/slide01.png'); background-size: cover;">
 							<div class="container">
 								<div class="slider_text_box">
 									<div class="box">
@@ -17,7 +17,7 @@
 								</div>
 							</div>
 						</li>
-						<li class="splide__slide" style="background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.4)), url('img/slide04.png'); background-size: cover;">
+						<li class="splide__slide" style="background: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0.4)), url('<?php echo constant('FRONTURL'); ?>img/slide04.png'); background-size: cover;">
 							<div class="container">
 								<div class="slider_text_box">
 									<div class="box">
@@ -44,7 +44,7 @@
 			$db = new Database;
 			$items = [];
 
-			$query_home = 'SELECT * FROM coches ORDER BY "id" DESC LIMIT 6';
+			$query_home = "SELECT * FROM coches ORDER BY id_coche DESC LIMIT 6";
 			try{
 
 				$query = $db->connect()->query($query_home);

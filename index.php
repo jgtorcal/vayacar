@@ -32,6 +32,7 @@ $url = explode('/', $url);
 
 
 $include ="main.php";
+$active = "main";
 
 switch ($url[0]){
 	case '':

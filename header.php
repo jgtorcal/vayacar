@@ -39,11 +39,6 @@
 					<nav id="nav_container">
 						<div id="menu_box">
 							<ul id="menu">
-								<?php
-								 
-								$active = null;
-								
-								?>
 								<li><a <?php if ($active == "main") {
 											echo 'class="active"';
 										} ?> href="<?php echo constant('FRONTURL'); ?>">Inicio</a></li>

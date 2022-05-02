@@ -17,7 +17,7 @@
                 $query_montada = "SELECT * FROM coches";
 
                 // SI viene del selector de marcas de la home
-                if ( $url[1] == 'marca' ) {
+                if ( isset($url[1]) && $url[1] == 'marca' ) {
 
                     $marca_url = $url[2];
                     $query_montada = "SELECT * FROM coches WHERE id_marca = {$marca_url}";
