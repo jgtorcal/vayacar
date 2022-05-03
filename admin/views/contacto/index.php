@@ -36,7 +36,7 @@ require 'views/header.php';
                     <td class="conlink"><a href="<?php echo constant('APPURL') . 'coches/edit/' . $contacto->id_coche; ?>"><?php echo $contacto->marca_name; ?> <?php echo $contacto->modelo; ?></a></td>
                     <td class="actions">
                         <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'contactos/edit/' . $contacto->id_contacto; ?>"><i class="fa-solid fa-square-pen btn-edit"></i></a></div>
-                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'contactos/delete/' . $contacto->id_contacto; ?>" onclick="return confirm('¿Estás seguro de querer eliminar este color?');"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>
+                        <div class="tablebtn"><a href="<?php echo constant('APPURL') . 'contactos/delete/' . $contacto->id_contacto; ?>" onclick="return confirm('¿Seguro que quieres eliminar este contacto?');"><i class="fa-solid fa-square-xmark btn-del"></i></a></div>
                     </td>
                 </tr>
                 <?php 

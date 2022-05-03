@@ -14,13 +14,13 @@
             if ( empty($_POST['marca']) || empty($_POST['color']) || empty($_POST['condicion']) || empty($_POST['provincia'])){
 
                 // La consulta viene sin parámetros, mostramos todos los coches por defecto
-                $query_montada = "SELECT * FROM coches";
+                $query_montada = "SELECT * FROM coches WHERE visibilidad = 1";
 
                 // SI viene del selector de marcas de la home
                 if ( isset($url[1]) && $url[1] == 'marca' ) {
 
                     $marca_url = $url[2];
-                    $query_montada = "SELECT * FROM coches WHERE id_marca = {$marca_url}";
+                    $query_montada = "SELECT * FROM coches WHERE visibilidad = 1 AND id_marca = {$marca_url}";
 
                 }
 
@@ -63,7 +63,7 @@
                     if ($count == 1 ){
 
                         if ( $count == $elementos){
-                            $query_montada .= ' WHERE ' . $valor;
+                            $query_montada .= ' WHERE ' . $valor . ' AND visibilidad = 1';
                         } else {
                             $query_montada .= ' WHERE ' . $valor . ' AND ';
                         }
@@ -71,7 +71,7 @@
                     } else {
 
                         if ( $count == $elementos){
-                            $query_montada .= $valor;
+                            $query_montada .= $valor . ' AND visibilidad = 1';
                         } else {
                             $query_montada .= $valor . ' AND ';
                         }
@@ -83,6 +83,8 @@
                 }
 
             }
+
+            //echo $query_montada;
 
             $db = new Database;
             $items = [];
@@ -126,6 +128,8 @@
                     </div>
                     <?php
                 }
+            } else {
+                echo "No hay coches disponibles";
             }
             ?>
 
