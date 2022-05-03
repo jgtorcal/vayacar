@@ -44,7 +44,7 @@
 			$db = new Database;
 			$items = [];
 
-			$query_home = "SELECT * FROM coches ORDER BY id_coche DESC LIMIT 6";
+			$query_home = "SELECT * FROM coches WHERE visibilidad = 1 ORDER BY id_coche DESC LIMIT 6";
 			try{
 
 				$query = $db->connect()->query($query_home);
@@ -118,7 +118,12 @@
 				$db = new Database;
 				$marcas = [];
 
-				$query_marcas = 'SELECT * FROM marcas';
+				$query_marcas = 'SELECT DISTINCT marcas.id_marca, marcas.nombre, marcas.logo
+				FROM marcas 
+				INNER JOIN coches 
+				ON marcas.id_marca = coches.id_marca
+				WHERE coches.visibilidad=1';
+
 				try{
 
 					$query = $db->connect()->query($query_marcas);
@@ -129,7 +134,10 @@
 				} catch(PDOException $e){
 					echo $e;
 				}
-				
+
+				// echo '<pre>';
+				// print_r($marcas);
+				// echo '</pre>';
 
 				if ($marcas){
 					foreach ($marcas as $item){

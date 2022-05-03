@@ -5,7 +5,7 @@ $db = new Database;
 // Extraemos las marcas utilizadas
 $marcas = [];
 try{
-    $query = $db->connect()->query('SELECT DISTINCT marcas.id_marca, marcas.nombre FROM marcas INNER JOIN coches ON marcas.id_marca = coches.id_marca');
+    $query = $db->connect()->query('SELECT DISTINCT marcas.id_marca, marcas.nombre FROM marcas INNER JOIN coches ON marcas.id_marca = coches.id_marca WHERE coches.visibilidad=1');
 
     while($row = $query->fetch()){
         array_push($marcas, $row);
@@ -16,7 +16,7 @@ try{
 // Extraemos los colores utilizados
 $colores = [];
 try{
-    $query = $db->connect()->query('SELECT DISTINCT colores.id_color, colores.color FROM colores INNER JOIN coches ON colores.id_color = coches.id_color');
+    $query = $db->connect()->query('SELECT DISTINCT colores.id_color, colores.color FROM colores INNER JOIN coches ON colores.id_color = coches.id_color WHERE coches.visibilidad=1');
 
     while($row = $query->fetch()){
         array_push($colores, $row);
@@ -27,7 +27,7 @@ try{
 // Extraemos las condiciones utilizadas
 $condiciones = [];
 try{
-    $query = $db->connect()->query('SELECT DISTINCT condiciones.id_condicion, condiciones.nombre FROM condiciones INNER JOIN coches ON condiciones.id_condicion = coches.id_condicion');
+    $query = $db->connect()->query('SELECT DISTINCT condiciones.id_condicion, condiciones.nombre FROM condiciones INNER JOIN coches ON condiciones.id_condicion = coches.id_condicion WHERE coches.visibilidad=1');
 
     while($row = $query->fetch()){
         array_push($condiciones, $row);
@@ -38,7 +38,7 @@ try{
 // Extraemos las provincias utilizadas
 $provincias = [];
 try{
-    $query = $db->connect()->query('SELECT DISTINCT provincias.id_provincia, provincias.nombre FROM provincias INNER JOIN coches ON provincias.id_provincia = coches.id_provincia');
+    $query = $db->connect()->query('SELECT DISTINCT provincias.id_provincia, provincias.nombre FROM provincias INNER JOIN coches ON provincias.id_provincia = coches.id_provincia WHERE coches.visibilidad=1');
 
     while($row = $query->fetch()){
         array_push($provincias, $row);
