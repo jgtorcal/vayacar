@@ -14,6 +14,11 @@
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
+
+-- Volcando estructura de base de datos para admin_vayacar
+CREATE DATABASE IF NOT EXISTS `admin_vayacar` /*!40100 DEFAULT CHARACTER SET utf8mb4 */;
+USE `admin_vayacar`;
+
 -- Volcando estructura para tabla admin_vayacar.coches
 CREATE TABLE IF NOT EXISTS `coches` (
   `id_coche` int(11) NOT NULL AUTO_INCREMENT,
@@ -42,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `coches` (
 
 -- Volcando datos para la tabla admin_vayacar.coches: ~12 rows (aproximadamente)
 INSERT INTO `coches` (`id_coche`, `referencia`, `modelo`, `descripcion`, `puertas`, `ano`, `precio`, `foto`, `visibilidad`, `id_marca`, `id_color`, `id_provincia`, `id_condicion`) VALUES
-	(1, 562, 'Ateca', 'Diamlorem irure exercitationem condimentum, nostrud wisi pariatur maiores quae, eget illo mi, adipisci nam mi consectetur adipisci, dapibus placerat hac.', 5, 2007, 15000, '31eca307bc3b415df6f3b534f97c43ef.jpg', 1, 1, 3, 10, 4),
+	(1, 562, 'Ateca', 'Diamlorem irure exercitationem condimentum, nostrud wisi pariatur maiores quae, eget illo mi, adipisci nam mi consectetur adipisci, dapibus placerat hac.', 5, 2007, 15000, '31eca307bc3b415df6f3b534f97c43ef.jpg', 0, 1, 3, 10, 4),
 	(2, 808, 'X1', 'Nonummy! Laboriosam etiam rerum, penatibus dolor convallis esse! Fringilla dolor, illum, fugit. Provident pretium, quisque ridiculus aptent reiciendis! Necessitatibus proident.', 4, 2017, 13000, '69eee0bd6cf1ba6d86bffc127776e230.jpg', 1, 2, 1, 41, 2),
 	(3, 52, 'Serie 1', 'Malesuada cupiditate debitis dignissim etiam quia in doloremque iaculis imperdiet congue nostra id lacus, repudiandae aliquam phasellus risus, minus voluptatibus.', 5, 2005, 12000, '0b7b5b7d2a7b017e46b0adc419d3eca5.jpg', 1, 2, 1, 5, 1),
 	(4, 34, 'Berlingo', 'Impedit praesent, consectetur fugit iste. Quidem, suscipit mattis. Quasi vivamus, sed auctor. Quam mi reiciendis esse facilisis possimus rem penatibus.', 5, 2012, 15000, 'e153021a0ff18755e161a0115040dfdd.jpg', 1, 3, 4, 12, 1),
@@ -53,7 +58,7 @@ INSERT INTO `coches` (`id_coche`, `referencia`, `modelo`, `descripcion`, `puerta
 	(9, 122, 'Rio', 'Expedita maiores magna? Fames, leo ullam in sit atque, ipsum maiores! Mus libero hymenaeos aperiam necessitatibus laborum repellat ligula risus.', 3, 2017, 25000, 'd70a4928db92e278b70b9450e7f6e8cb.jpg', 0, 6, 2, 8, 1),
 	(10, 555, 'Sportage', 'Mauris diam sit, doloremque mollitia unde possimus condimentum necessitatibus, ac nec aute, assumenda mollitia voluptate ligula ultrices justo recusandae inceptos.', 4, 2015, 25000, '60557648c28c30bb0a7e605e78383f1b.jpg', 1, 6, 5, 8, 1),
 	(11, 233, 'Corsa', 'Tenetur accusamus, consequat lacinia? Laboris eleifend vestibulum. Amet quaerat proident, molestias aliquip! Duis deleniti taciti praesent perferendis ullamco? Facere veritatis.', 3, 2013, 11000, '5f47e1551b4e9ccf832a58af04a5ffd6.jpg', 1, 7, 2, 8, 1),
-	(12, 566, '108', 'Tenetur occaecati, earum incididunt, nibh? Deserunt, quos conubia proin semper sapien aenean? Hymenaeos eum est, magnam quisquam optio! Litora? Nostra.', 4, 2018, 35000, 'b4370f9bdd81458dcedef2da62859c4c.jpg', 1, 8, 5, 8, 1);
+	(12, 566, '108', 'Tenetur occaecati, earum incididunt, nibh? Deserunt, quos conubia proin semper sapien aenean? Hymenaeos eum est, magnam quisquam optio! Litora? Nostra.', 4, 2018, 35000, 'b4370f9bdd81458dcedef2da62859c4c.jpg', 0, 8, 5, 8, 1);
 
 -- Volcando estructura para tabla admin_vayacar.colores
 CREATE TABLE IF NOT EXISTS `colores` (
@@ -62,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `colores` (
   PRIMARY KEY (`id_color`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
--- Volcando datos para la tabla admin_vayacar.colores: ~5 rows (aproximadamente)
+-- Volcando datos para la tabla admin_vayacar.colores: ~4 rows (aproximadamente)
 INSERT INTO `colores` (`id_color`, `color`) VALUES
 	(1, 'Negro'),
 	(2, 'Blanco'),
@@ -100,7 +105,7 @@ CREATE TABLE IF NOT EXISTS `contactos` (
   CONSTRAINT `FK_estado` FOREIGN KEY (`id_estado`) REFERENCES `estados` (`id_estado`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla admin_vayacar.contactos: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla admin_vayacar.contactos: ~0 rows (aproximadamente)
 INSERT INTO `contactos` (`id_contacto`, `nombre`, `telefono`, `email`, `mensaje`, `id_estado`, `id_coche`) VALUES
 	(1, 'Jordi', '123456', 'jgtorcal@gmail.com', 'test', 2, 2),
 	(2, 'Pedro', '45678123', 'pedro@gmail.com', 'Me interesa!', 1, 12);
@@ -142,7 +147,7 @@ CREATE TABLE IF NOT EXISTS `marcas` (
   PRIMARY KEY (`id_marca`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla admin_vayacar.marcas: ~10 rows (aproximadamente)
+-- Volcando datos para la tabla admin_vayacar.marcas: ~8 rows (aproximadamente)
 INSERT INTO `marcas` (`id_marca`, `nombre`, `logo`) VALUES
 	(1, 'Seat', '3acb2b64e768134cb42d57706996c8d3.png'),
 	(2, 'BMW', '5848844e2b3aaab9f0e0d54f3af75598.png'),
