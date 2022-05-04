@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
 
 <head>
 	<meta charset="utf-8">
@@ -33,7 +33,7 @@
 				<div id="header_container_box">
 					<!-- LOGO -->
 					<div id="logo_box">
-						<a href="<?php echo constant('FRONTURL'); ?>"><img src="<?php echo constant('FRONTURL'); ?>img/logo.png"></a>
+						<a href="<?php echo constant('FRONTURL'); ?>"><img src="<?php echo constant('FRONTURL'); ?>img/logo.png" alt="logo VayaCar"></a>
 					</div>
 					<!-- NAV -->
 					<nav id="nav_container">

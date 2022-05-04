@@ -84,7 +84,7 @@
 								<li class="splide__slide">
 									<a href="<?php echo constant('FRONTURL'); ?>coche/<?php echo $item['id_coche'];?>">
 										<div class="splide__slide__container">
-											<img src="<?php echo constant('PUBLIC_UPLOADS_COCHES_URL'); ?><?php echo $item['foto'] ?>">	
+											<img src="<?php echo constant('PUBLIC_UPLOADS_COCHES_URL'); ?><?php echo $item['foto'] ?>"  alt="<?php echo $items_marca[0]['nombre'] ;?> - <?php echo $item['modelo'];?>">	
 										</div>
 										<div class="splide_slide_box">
 											<div class="splide_slide_box_title"><?php echo $items_marca[0]['nombre'] ;?> <?php echo $item['modelo'];?></div>
@@ -145,7 +145,7 @@
 						?>
 						<div class="marca_item">
 							<a href="coches/marca/<?php echo $item["id_marca"] ?>">
-								<img src="<?php echo constant('PUBLIC_UPLOADS_URL'); ?><?php echo $item['logo'] ?>">
+								<img src="<?php echo constant('PUBLIC_UPLOADS_URL'); ?><?php echo $item['logo'] ?>" alt="<?php echo $item["nombre"] ?>">
 							</a>
 						</div>
 						<?php
