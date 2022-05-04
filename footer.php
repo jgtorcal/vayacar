@@ -19,7 +19,7 @@
 					
 					<div class="footer_left">
 						<div id="logo_footer_box">
-							<img src="<?php echo constant('FRONTURL'); ?>img/logo_negativo.png">
+							<img src="<?php echo constant('FRONTURL'); ?>img/logo_negativo.png" alt="Vayacar logo">
 							<p><?php echo $content['direccion']; ?><br><a href="mailto:<?php echo $content['email']; ?>"><?php echo $content['email']; ?></a></p>
 						</div>
 					</div>
